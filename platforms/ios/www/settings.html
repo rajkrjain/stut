@@ -1,0 +1,616 @@
+<html>
+<head>
+<script type="text/javascript" src="media/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.2.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+<script type="text/javascript" src="srijna.js"></script>
+<link rel="stylesheet" href="css/srijna.css"
+      type="text/css" media="screen" />
+
+<style>
+	.block h2 {
+    margin-top:0px;
+    margin-bottom:0px;
+    color:#fff;
+    background-color:#6D84B4;
+    padding:10px 5px;
+	width:95%;
+	text-align:center;
+    border:1px solid #3B5998;
+    font-size:14px;
+	font-weight:normal;
+  }
+  
+	body{
+		background:#fff;
+	oveflow: hidden !important;
+	}
+
+	
+	
+	.text1{
+		
+		font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+
+display: block;
+margin: .6em 0;
+margin-top: .1em;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+	
+	}
+	.part1{
+		
+		height:10%;
+		border-bottom:1px solid #ddd;
+	}
+	
+	.part2{
+		background-color: #fff;
+		
+		height:100%;
+		width:100%;
+		float:left;
+		
+	}
+	
+	.part2 p{
+	
+		font-weight: 300;
+
+color: #777;
+margin-bottom: .1em;
+display: block;
+margin:0;
+font-family: 'Open Sans', sans-serif;
+white-space: normal;
+font-size: 1.05em;
+	}
+	
+	.buttonmask{
+	
+		width:40px;
+		height:38px;
+		border:3px solid #666;
+		padding:3px;
+		background:#ccc;
+		border-radius:25px;
+		margin-left:2px;
+		margin-top:3px;
+		
+	}
+	.buttonmaskbig{
+	
+		width:48px;
+		height:48px;
+		border:3px solid #666;
+		padding:3px;
+		background:#ccc;
+		border-radius:30px;
+		margin-left:2px;
+		
+	}
+	.btw{
+		width:20%;
+		height:40px;
+		float:left;
+	}
+	.poptb{
+		display:none;
+		width:52px;
+		z-index:1000px;
+		height:300px;
+		
+		position:absolute;
+		background:#ccc;
+		top:11%;
+		left:10.6%;
+		border:3px solid #aaa;
+		border-radius:10px;
+		
+	}
+	.block{
+	
+		width:225px;
+		height:135px;
+		background:white;
+		margin-left:10px;
+		border:5px solid #aaa;
+		border-radius:10px;
+		opacity:0.8;
+		box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+		float:left;
+	}
+	
+	.block p {
+   
+   
+	text-align:left;
+    
+    font-size:12px;
+	font-weight:normal;
+	width:50%;
+	float:left;
+	
+  }
+  .block .alg{
+  
+	position:absolute;
+	width:42px;
+  }
+  .block button{
+  
+	
+	width:50%;
+	margin-left:25%;
+	height:30px;
+	margin-top:20px;
+  }
+  .innerD{
+  
+	width:100%;
+	height:15%;
+	display:block;
+	border-bottom:1px solid #eee;
+	background:#ccc;
+	background-color: #ccc;
+  }
+  td.left{
+	width:70%;
+  }
+  td.right{
+	width:30%;
+  }
+  .tabs1{
+  
+	width:100%;
+	height:auto;
+	padding:0px;
+	margin:0px;
+  }
+  .part2 div a{
+		
+		float:left;
+		color:black;
+		text-align:left;
+		text-decoration:none;
+		font-size:14px;
+		font-weight:bold;
+		margin-top:4px;
+		
+		width:70%;
+	}
+	
+  .part2 .tiopdiv{  
+	background: #fff;
+	height:14%;	
+	border:1px solid #f0f0f0;
+	border-radius:0px;
+	
+  }
+  
+  
+   .part2 img{
+	float:left!important;
+	max-height:90%!important;
+  }
+  .subhead{
+	width:100%;
+	float:left;
+  }
+  
+  
+.dialog {
+
+border: 1px solid #a4baca;
+background: #fdfdfd;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+width: 98%;
+height:99%;
+display:none;
+}
+
+.dialog .header {
+position: relative;
+background: #517fa4;
+height: 44px;
+border: 1px solid #1c5380;
+border-width: 1px 1px 0;
+-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-webkit-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+background-color: #517fa4;
+background: #517fa4;
+
+background-position: 50% 50%;
+margin: -1px -1px 1px;
+}
+.dialog .header img{
+	float:left;
+	position:absolute;
+	max-height:100%;
+}
+.dialog .logo {
+
+
+color: #fff;
+font-size: 18px;
+text-align: center;
+
+font-family: "freight-sans-pro","proxima-nova","Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+.settings_data{
+	background-color:#f7f7f7;
+padding: 5px;
+padding-bottom: 10px;
+
+color:white;
+}
+.settings_data td{
+	color:#000;
+	font-weight:bold;
+	font-size:10pt;
+	
+}
+.settings_data table{
+			width:100%;
+}
+.settings_data  tr { 
+	width:100%;
+        display: table;            /* this makes borders/margins work */
+}
+.settings_data input{
+    width:100%!important;
+}
+
+.settings .close {
+    background-image:url(image_data/close.png);
+    position:absolute; 
+	right:0px;
+	z-index:100;
+	top:-4px;
+	
+    cursor:pointer;
+    height:35px;
+    width:35px;
+}
+/* For the details, see:
+   http://flowplayer.org/tools/dateinput/index.html#skinning */
+
+/* the input field */
+.date {
+    border:1px solid #ccc;
+    font-size:18px;
+    padding:2px;
+    text-align:center;
+    width:194px;
+
+    -moz-box-shadow:0 0 10px #eee inset;
+    -webkit-box-shadow:0 0 10px #eee inset;
+}
+
+/* calendar root element */
+#calroot {
+    /* place on top of other elements. set a higher value if nessessary */
+    z-index:10000;
+
+    margin-top:-1px;
+    width:198px;
+    padding:2px;
+    background-color:#fff;
+    font-size:11px;
+    border:1px solid #ccc;
+
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+
+    -moz-box-shadow: 0 0 15px #666;
+    -webkit-box-shadow: 0 0 15px #666;
+}
+
+/* head. contains title, prev/next month controls and possible month/year selectors */
+#calhead {
+    padding:2px 0;
+    height:22px;
+}
+
+#caltitle {
+    font-size:14px;
+    color:#0150D1;
+    float:left;
+    text-align:center;
+    width:155px;
+    line-height:20px;
+    text-shadow:0 1px 0 #ddd;
+}
+
+#calnext, #calprev {
+    display:block;
+    width:20px;
+    height:20px;
+    background:transparent url(image_data/prev.gif) no-repeat scroll center center;
+    float:left;
+    cursor:pointer;
+}
+
+#calnext {
+    background-image:url(image_data/next.gif);
+    float:right;
+}
+
+#calprev.caldisabled, #calnext.caldisabled {
+    visibility:hidden;
+}
+
+/* year/month selector */
+#caltitle select {
+    font-size:10px;
+}
+
+/* names of the days */
+#caldays {
+    height:14px;
+    border-bottom:1px solid #ddd;
+}
+
+#caldays span {
+    display:block;
+    float:left;
+    width:28px;
+    text-align:center;
+}
+
+/* container for weeks */
+#calweeks {
+    background-color:#fff;
+    margin-top:4px;
+}
+
+/* single week */
+.calweek {
+    clear:left;
+    height:22px;
+}
+
+/* single day */
+.calweek a {
+    display:block;
+    float:left;
+    width:27px;
+    height:20px;
+    text-decoration:none;
+    font-size:11px;
+    margin-left:1px;
+    text-align:center;
+    line-height:20px;
+    color:#666;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+/* different states */
+.calweek a:hover, .calfocus {
+    background-color:#ddd;
+}
+
+/* sunday */
+a.calsun {
+    color:red;
+}
+
+/* offmonth day */
+a.caloff {
+    color:#ccc;
+}
+
+a.caloff:hover {
+    background-color:rgb(245, 245, 250);
+}
+
+
+/* unselecteble day */
+a.caldisabled {
+    background-color:#efefef !important;
+    color:#ccc	!important;
+    cursor:default;
+}
+
+/* current day */
+#calcurrent {
+    background-color:#498CE2;
+    color:#fff;
+}
+
+/* today */
+#caltoday {
+    background-color:#333;
+    color:#fff;
+}
+.s_header{
+	cursor:pointer;
+}
+
+ul{
+	padding:0px;	
+	background: #f7f7f7;
+	-webkit-margin-before: 0;
+-webkit-margin-after: 0;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 0px;
+padding:5px;
+}
+li{
+	list-style:none;
+	
+	background:#fff;
+	border-bottom:1px solid #eee;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+}
+li:first-child{
+	border-top:1px solid #eee;
+	border-radius:5px 5px 0px 0px;
+	text-align:center;
+	height:25px;
+	margin-top:0px;
+    margin-bottom:0px;
+    color:#fff;
+    background-color:#6D84B4;
+    padding:2px 0px;	
+	border-radius:5px 5px 0 0;	
+	text-align:left;
+    border:1px solid #3B5998;
+    font-size:14px;
+	font-weight:bold;
+}
+li:last-child{
+	border-radius:0px 0px 5px 5px ;
+}
+.lid{
+	
+	
+}
+li h2{
+	
+	margin:0px;
+	padding:0px;
+}
+td{
+	color:black;
+}
+
+
+</style>
+
+</head>
+<body >
+<input type="hidden" value="Customize" id="layout" />
+	<div class="mainview" align="left" >
+		<div class="head" >
+			<h2 style="text-align:center">Settings</h2>
+		</div>
+		<div class="body" style="margin-top:7px;">
+			<div class="part2">		
+		</div>
+		<div class="foot">
+			<div  id="menu_button">Menu</div>
+			<div class="menu" align="center"></div>
+		</div>
+
+	</div>
+	
+	<div class="settings dialog" >
+		<a class="close"></a>
+		<div class="header">
+			<img src=""/>
+			<h1 class="logo">Quiz Statistics</h1>
+		</div>
+		<div style="width:100%;height:90%;overflow-x:hidden;overflow-y:auto;">
+			<div class="settings_data">
+			</div>
+		</div>
+	</div>
+		<script>
+				$(".settings").overlay({
+				top: 0,
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+				},
+				closeOnClick: false,
+				load: false
+			});
+				function loadSettings(){
+					$(".settings").overlay().load();
+				}
+			  document.addEventListener("deviceready", onDeviceReady, false);
+			  $(document).ready(function(){
+					if(! isMobile.any() ){
+						onDeviceReady();
+						
+					}
+					
+			});
+				var isReady=false;
+			  function onDeviceReady() {
+			  	if(!isReady){
+					isReady=true;
+					initDatabase();	
+					processLayouts();
+			  	}
+			  }
+			  var layouts =[]; 
+			  var miL=0;
+			  function processLayouts(){
+				$.getJSON('json/application.json', function(appMessage) {
+					$(".part2 .tabs1").html("");
+					$.each(appMessage.layouts,function(i,j){
+						layouts[j.name]=j;
+						if(j.layoutorder!="menu"){
+							$(".part2").append("<div id=\""+j.name+"\" class=\"tiopdiv\"><img class=\"logo\" src=\"image_data/"+j.logo+"\"></img><a class=\"s_header\" href=\"#first\">"+j.name+"</a></div>");
+						}
+						if(j.layoutorder=="menu" && j.menuLayouts!=null && j.menuLayouts.indexOf($("#layout").val())!=-1 ){
+                                                                miL++;
+                                                                $(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a href=\""+j.template+"\">"+j.name+"</a></div>");
+                                                }
+									
+					});
+					$(".part2").append("<div id=\"Application\" class=\"tiopdiv\"><img class=\"logo\" src=\"image_data/"+appMessage.logo+"\"></img><a class=\"s_header\" href=\"#first\">Application</a></div>");
+					layouts["Application"]=appMessage;
+					createMenu(miL);
+					$(".part2 .tiopdiv").click(function(){
+						var mId=$(this).attr("id");
+						var mSrc=$(".logo",$(this)).attr("src");
+						var mHtml=$(".s_header",$(this)).html();
+					
+						parseSettings(layouts[$(this).attr("id")],function callBack(settings){
+							$(".settings_data").html(getSttingsHtml(layouts[mId],settings));
+							$(".settings_data :date").dateinput();
+							$(".settings .header img").attr("src",mSrc);
+							$(".settings .header .logo").html(mHtml+" Settings");
+							$('select').slider();
+							$( "select" ).bind( "change", function(event, ui) {
+								var vall = "false";
+                                    				if($(this).val()=="yes"){
+                                        				vall="true";
+                                                                           
+                                    				}
+								settings[$(this).attr("id")].value=vall;
+                                    				updateSettingsAll(settings,layouts[mId]);
+							});
+						
+							$(".settings_data input").blur(function(){
+								settings[$(this).attr("id")].value=$(this).val();
+								updateSettingsAll(settings,layouts[mId]);
+							});
+                                      			$(".settings_data :checkbox").change(function(){
+                                                                var vall = "false";
+                                                                if($(this).attr("checked")){
+                                                                       vall="true";
+                                                                }
+                                                                settings[$(this).attr("id")].value=vall;
+                                                                updateSettingsAll(settings,layouts[mId]);
+                                                         });
+							 loadSettings();
+						});
+					});
+				});
+			  }
+			  function startApplication(){
+			  }
+			</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions>
+
+<question>
+		<id>100</id>
+		<Q>Who are U?</Q>
+		<A>OP2</A>
+		<OP1>Dhhh</OP1>
+		<OP2>DD00</OP2>
+		<OP3>DDmm</OP3>
+		<OP4>DDsss</OP4>
+		<multiple>true</multiple>
+</question>
+<question>
+		<id>101</id>
+		<Q>What  U want?</Q>
+		<A>OP2</A>
+		<OP1>DD1</OP1>
+		<OP2>DD2</OP2>
+		<OP3>DD3</OP3>
+		<OP4>DD4</OP4>
+		<multiple>false</multiple>
+</question>
+<question>
+		<id>102</id>
+		<Q>Where  U want?</Q>
+		<A>OP2</A>
+		<OP1>DD1</OP1>
+		<OP2>DD2</OP2>
+		<OP3>DD3</OP3>
+		<OP4>DD4</OP4>
+		<multiple>false</multiple>
+</question>
+</questions>

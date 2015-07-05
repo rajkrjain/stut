@@ -1,0 +1,769 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript" src="media/js/jquery.tools.min.js"></script>
+<link rel="stylesheet" href="css/srijna.css"  type="text/css" media="screen" />
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="srijna.js"></script>
+<style>
+
+.block h2 {
+    margin-top:0px;
+    margin-bottom:0px;
+    color:#fff;
+    background-color:#6D84B4;
+    padding:10px 5px;
+	width:95%;
+	text-align:center;
+    border:1px solid #3B5998;
+    font-size:14px;
+	font-weight:normal;
+}
+body{
+    background:#fff;
+    margin: 2px;
+}
+
+.text1{
+    font-weight: 700;
+    font-size: .9em;
+    color: #07ade0;
+    display: block;
+    margin: .6em 0;
+    margin-top: .1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.part1{
+    height:15%;
+    border-bottom:1px solid #ddd;
+}
+	
+.part2{
+    height:100%;
+    width:85%;
+    float:left;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+	
+.part3{
+    width:40px;
+    height:100%;
+    float:left;
+	overflow:auto;
+}
+.part2 p{
+    font-weight: 300;
+    color: #777;
+    margin-bottom: .1em;
+    display: block;
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+    white-space: normal;
+    font-size: 1.05em;
+}
+	
+.buttonmask{
+    width:40px;
+    cursor:pointer;
+    height:38px;    
+    border-radius:25px;
+    margin-left:2px;
+    
+    float:left;
+}
+.mainview.top .buttonmask{
+	float:right;
+	margin-right:2px;
+}
+.mainview.top .buttonmask img{
+	float:right;
+	
+	
+	
+	height:30px;
+	width:30px;
+}
+.buttonmaskbig{
+    width:48px;
+    height:48px;
+    border-radius:30px;
+    margin-left:2px;
+}
+.btw{
+    width:auto;
+    height:40px;
+    float:right;
+}
+.btwA{
+    width:auto;
+    
+}
+
+.poptb{
+    display:none;
+    width:52px;
+    z-index:1000px;
+    max-width:300px;
+    height:40px;
+    position:absolute;
+    top:11%;
+    left:10.6%;
+    border-radius:10px;
+}
+.poptbv{
+		
+		width:52px;
+		z-index:1000px;
+		height:auto;
+		top:-100px;
+		display:none;
+		position:absolute;
+		background:#ccc;
+		
+		
+		border:1px solid #eee;
+		border-radius:10px;
+		
+	}
+	
+	.poptbv h2{
+		font-size:10pt;
+		margin:0px;
+		padding:0px;
+		font-weight:bold;
+		-webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+	}
+	.poptbv div{
+		border:1px solid #ccc;
+		border-radius:5px;
+		background:#fff;
+		margin-bottom:5px;
+		
+	}
+	.poptbv div:last-child{
+		
+		margin-bottom:2px;
+		
+	}
+	.poptbv div img{
+		width:100%;
+	}
+	
+.block{
+    width:225px;
+    height:135px;
+    background:white;
+    margin-left:10px;
+    border:5px solid #aaa;
+    border-radius:10px;
+    opacity:0.8;
+    box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px
+        rgba(0,0,0,0.15);
+    float:left;
+}
+	
+.block p {
+	text-align:left;
+    font-size:12px;
+	font-weight:normal;
+	width:50%;
+	float:left;
+}
+.block .alg{
+	position:absolute;
+	width:42px;
+}
+.block button{
+	width:50%;
+	margin-left:25%;
+	height:30px;
+	margin-top:20px;
+}
+.innerD{
+	width:auto;
+	height:100px;
+	margin:10px;
+	border-bottom:1px solid #eee;
+	background-color: #fff;;
+}
+
+  
+.primary{
+    font-weight: 700;
+    font-size: .9em;
+    color: #07ade0;
+    display: block;
+    margin: .6em 0;
+    margin-top: .1em;
+    margin-left:1px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor:pointer;
+    float:left;
+}
+.data{
+    font-weight: 700;
+    font-size: .7em;
+    color: #777;
+    display: block;
+    margin: .6em 0;
+    margin-top: .1em;
+    margin-left:1px;
+    text-overflow: ellipsis;
+    cursor:pointer;
+    width:100%;
+    float:left;
+}
+	
+.type{
+    font-weight: 700;
+    font-size: .9em;
+    color: #777;
+    display: block;
+    margin: .6em 0;
+    margin-top: .1em;
+    margin-left:4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor:pointer;
+}
+.left_align{
+    float:left;
+    width:90%;
+}
+.right_align{
+    float:right;
+    width:10%;
+}
+	
+.part3 table td{
+    cursor:pointer;
+    font-weight:bold;
+}
+.part3 table td:hover{
+  
+    color:red;
+    cursor:pointer;
+    font-weight:bold;
+    
+}
+.head input{
+    border: 1px solid #ccc;
+    padding: 9px 8px 7px;
+    width:40%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+}
+.level img{
+	float:right;
+}
+.buttonmask img{
+	width:100%;
+}
+.dialog {
+
+border: 1px solid #a4baca;
+background: #fdfdfd;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+width:100%;
+
+margin-left:0%;
+
+height:auto;
+
+}
+
+.dialog .header {
+position: relative;
+background: #517fa4;
+height: 25px;
+border: 1px solid #1c5380;
+border-width: 1px 1px 0;
+-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-webkit-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+background-color: #517fa4;
+background: #517fa4;
+
+margin: -1px -1px 1px;
+}
+.dialog textarea{
+
+	width:100%;
+	height:50%;
+}
+.dialog .logo {
+
+
+color: #fff;
+font-size: 12px;
+text-align: center;
+
+font-family: "freight-sans-pro","proxima-nova","Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+.dialog .close {
+    background-image:url(image_data/close.png);
+    position:absolute; 
+	right:0px;
+	z-index:100;
+	top:-4px;
+	
+    cursor:pointer;
+    height:35px;
+    width:35px;
+}
+
+.panes{
+	border:1px solid #eee;
+	background:white;
+	
+}	
+.ddiv{
+			
+		display:none;
+		width:100%;
+		height:100%;
+font-weight: 700;
+font-size: .9em;
+color: #666;
+float:left;
+
+
+
+text-overflow: ellipsis;
+			
+	}
+
+	
+	
+	.tabs li.select,  .next:hover {
+background: #04608E;
+background: -moz-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e 100%);
+background: -o-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #69a0b6), color-stop(5%, #69a0b6), color-stop(5%, #277696), color-stop(100%, #04608e));
+background: linear-gradient(top, #69a0b6 0%,#69a0b6 1px,#277696 1px,#04608e 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#277696', endColorstr='#04608E',GradientType=0 );
+border-color: #004a73;
+color:#fff;
+}
+.tabs li,.next{
+background: #0571A6;
+background: -moz-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+background: -o-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #73aec9), color-stop(5%, #73aec9), color-stop(5%, #338ab0), color-stop(100%, #0571a6));
+background: linear-gradient(top, #73aec9 0%,#73aec9 1px,#338ab0 1px,#0571a6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#338AB0', endColorstr='#0571A6',GradientType=0 );
+border-color: #045a8b;
+color: #fff !important;
+border-width: 1px;
+border-style: solid;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+cursor: pointer;
+font-size: 12px;
+line-height: 1.35;
+margin-top: 0px;
+overflow: visible;
+padding: 3px 10px 2px;
+text-decoration: none !important;
+vertical-align: top;
+width: auto;
+}
+
+.tabs li{
+		
+		float:left;
+		height:100%;
+		padding:0px;
+		text-align:center;
+		
+		background: url('image_data/topnav-bg.gif');
+	
+border-radius:5px 5px 0px 0px;
+		
+	}
+	.tabs li a{
+		
+		color:black;
+		text-align:center;
+		text-decoration:none;
+		font-size:14px;
+		font-weight:bold;
+		margin-top:10px;
+		
+	}
+
+.foot div{
+	cursor:pointer;
+}
+
+.nondisplay{
+	display:none;
+}
+.mainview.top .buttonmask{
+	float:right;
+	margin-right:2px;
+}
+.mainview.top .buttonmask img{
+	float:right;
+	
+	
+	
+	height:30px;
+	width:30px;
+}
+</style>
+
+</head>
+<body >
+	<input type="hidden" value="Browse" id="layout"/>
+	<input type="hidden" value="Study" id="seclayout"/>
+	<div id="toggleview">
+	<div class="mainview item transparent top" align="left" >
+		<div class="head" align="left"  >
+			<input style="min-height:36px;margin-left:10px;background-image:url('image_data/info.jpg');background-repeat:no-repeat;padding-left:35px;width:90%;" type="text" placeholder="Type a word" id="search" />
+		</div>
+		
+		<div class="body">
+			<div class="part2" style="background:#fff">
+					<div class="innerD"></div>
+					<div class="innerD"></div>
+			</div>
+			
+
+			
+			
+		</div>
+		
+		<div class="foot" align="center">
+			<div id="menu_button">Menu</div>
+			<div id="back_button">Back</div>
+		</div>
+		
+		<div class="menu" align="center">
+			
+		</div>
+		
+		
+		
+	</div>
+	<div class="dialog item check" style="height:90%;width:100%;margin:auto" id="detaildata" align="center">
+			
+	</div>
+	</div>
+	
+	
+		<script>
+		 
+			
+			
+			  var data=new Array();
+			  $(".part2").html("");
+				var divMap=null;
+			
+			  var layObj=null;
+			  
+			 document.addEventListener("deviceready", onDeviceReady, false);
+			
+			$(document).ready(function(){
+			
+				if(! isMobile.any() ){
+			
+					onDeviceReady();
+				
+				}
+				
+				
+				
+			});
+			
+			 function onDeviceReady(){
+				initDatabase();	
+				startApplication();	 
+				createHelp();
+				$("#back_button").css("display","none");
+				$("#back_button").click(function(){
+				
+					$("#detaildata").removeClass("transparent");
+					$("#back_button").css("display","none");
+					$("#menu_button").css("display","block");
+					$("#detaildata").unbind();
+					//$("#detaildata").html("");
+				});
+				
+			}
+			var miL=0;
+			var isDeckSelSupported=false;
+			  function startApplication(){
+				$.getJSON('json/application.json', function(appMessage) {
+				isDeckSelSupported = appMessage.isDeckSelSupported;
+					
+					
+			         $.each(appMessage.layouts,function(i,j){
+						if(j.layoutorder=="menu" && j.menuLayouts!=null && j.menuLayouts.indexOf($("#layout").val())!=-1 ){
+								miL++;
+								$(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a href=\""+j.template+"\">"+j.name+"</a></div>");	
+						}
+						if(j.name==$("#layout").val()){
+						
+							layObj=j;
+                            
+                            if(isDeckSelSupported){
+                            
+                            setDeckSupported($("#layout").val(),function(){
+                                             
+                                             parseData();
+                                             });
+                            
+                            }else{
+                            
+                            parseData();
+                            }
+						}
+						if(j.name==$("#seclayout").val()){
+							secLayout=j;
+						}
+						
+				});
+				});
+				}
+				var dataPrimaryMap=[];
+				var secLayout=null;
+				function parseData(){
+				
+					
+				$.getJSON("json/study.json",function(js){
+			  
+					$.each(js.data,function(i,j){
+				
+						data=j;
+						
+					});
+					//data = getSelectedDeckData(data);
+					
+					fillUserData(data,layObj.name,function(dataOut){
+								
+								
+							var html="";
+							$.each(data,function(i,j){		
+
+								if(i<200){
+				
+									var lImage=getImage(3,data[i]['level']);
+									
+									
+									var cImage=data[i]['Critical']==1?"<img src=\"image_data/ic_push_pin48.png\"/>":"";
+									var sImage="";
+									
+									if(data[i].tag==""|| data[i].tag==0){
+			
+										sImage="<img class=\"mstar\" src=\"image_data/ic_star_disabled72.png\"/>";
+		
+									}else{
+										sImage="<img class=\"mstar\" src=\"image_data/ic_star_enabled72.png\"/>";
+											
+		
+									}
+									
+									
+									html+="<div id=\"div_"+i+"\" class=\"innerD shadow\"><div class=\"left_align\"><h2 class=\"primary\">"+j[layObj.primary_field]+"</h2><h2 class=\"type\">&nbsp;(&nbsp;"+j[layObj.primary_type]+"&nbsp;)&nbsp;</h2><h2 class=\"data\">"+j[layObj.default_field]+"</h2></div><div class=\"btw right_align\"><div class=\"buttonmask\" id=\"bm"+i+"\"><img class=\"mlevel\" src=\""+lImage+"\"/>"+cImage+sImage+"</div></div></div>";
+									
+						
+								}
+								dataPrimaryMap[j[layObj.primary_field]]=j;
+				
+							});
+							$(".part2").append(html);
+							divMap = $(".innerD");
+					
+							$(".innerD").click(function(){
+								clickDetails(this);
+							});
+							$(".head").height($(".head").height());
+							
+							$(".left_align").width($(".innerD").width()-60);
+							$(".poptb").width($(".left_align").width()-10);
+							//$(".poptb").css("width","auto");
+							$(".right_align").width(60);
+							$(".buttonmask").width(48);
+							$(".buttonmask").height(48);
+							
+							$(".buttonmask").click(function(){
+								$(".poptb").height($(this).height());
+								
+								$(".poptb").css({"left":$(this).position().left-$(".poptb").width()});
+								$(".poptb").css({"top":$(this).position().top+5});
+					
+								if($(".poptb").css("display")!="none" && lastLeft!=$(this).attr("id")){
+					
+								}else
+									$(".poptb").animate({"right":"toggle"},500);
+								lastLeft=$(this).attr("id");
+						
+								var idM = $(this).attr("id");
+						
+								$(".poptb").html(getALlLevelImages(idM));
+								$(".poptb img").height(48);
+								$(".poptb img").click(function(){
+							
+									var cl = $(this).attr("class").split(" ")[1];						
+								
+									var dataI = data[($(this).attr("id").split("_")[1]).split("bm")[1]];
+								
+									$("#"+$(this).attr("id").split("_")[1]+" img").attr("src",getLevelImage(cl.split("level")[1]));
+								
+									updateLevel(cl.split("level")[1],"level",dataI);
+								
+									$(".poptb").animate({"right":"toggle"},500);
+								
+								});
+								$(".poptb").css("right","auto");
+							});
+							
+					});
+					
+				
+					
+				createMenu(miL);
+				
+			  });
+				}
+			 var ins=false;
+			 var isBreak=false;
+			 $("#search").keyup(function(){
+			 
+				searchData();
+				
+			 });
+			 
+			 function searchData(){
+			 
+				var s = $("#search").val().toLowerCase();
+				
+				var html="";
+				$(".innerD").remove();
+				var ind=0;
+				var tabs=secLayout.infotabs.split(",");
+				for(var i=0;i<data.length;i++){
+					var j=data[i];
+					
+							if(ind>200){
+									$(".part2").append(html);
+									break;
+							}
+								
+								var f=false;
+								var dataS="";
+								
+								if(j[secLayout.primary_field].toLowerCase().indexOf(s)!=-1){
+								
+									dataS+=tabs[0]+" : "+j[tabs[0]];
+									f=true;
+									
+								}else{
+									for(var m=0;m<tabs.length;m++){
+							
+											
+											
+											
+											if(j[tabs[m]].toLowerCase().indexOf(s)!=-1){
+												f=true;
+												dataS+=tabs[m]+" : "+j[tabs[m]];
+												break;
+											}
+						
+									}
+								
+								}
+					
+					if(!f){
+					
+						$("#div_"+i).css("display","none");
+						
+						
+					}else{
+						ind++;
+				
+									var lImage=getImage(3,j['level']);
+									
+									
+									var cImage=j['Critical']==1?"<img src=\"image_data/ic_push_pin48.png\"/>":"";
+									var sImage="";
+									
+									if(j.tag==""|| j.tag==0){
+			
+										sImage="<img class=\"mstar\" src=\"image_data/ic_star_disabled72.png\"/>";
+		
+									}else{
+										sImage="<img class=\"mstar\" src=\"image_data/ic_star_enabled72.png\"/>";
+											
+		
+									}
+						html+="<div id=\"div_"+i+"\" class=\"innerD shadow\"><div class=\"left_align\"><h2 class=\"primary\">"+j[layObj.primary_field]+"</h2><h2 class=\"type\">&nbsp;(&nbsp;"+j[layObj.primary_type]+"&nbsp;)&nbsp;</h2><h2 class=\"data\">"+dataS+"</h2></div><div class=\"btw right_align\"><div class=\"buttonmask\" id=\"bm"+i+"\"><img class=\"mlevel\" src=\""+lImage+"\"/>"+cImage+sImage+"</div></div></div>";
+						
+						
+					}
+					
+				}
+				$(".part2").append(html);
+				$(".innerD").unbind();
+				$(".innerD").click(function(){
+								clickDetails(this);
+				});
+					
+			 }
+			$(".part3 table td").click(function(){
+                $("#search").val($(this).html().toLowerCase());
+				searchData();
+				
+			});
+			
+			$(".part2").width($(".body").width()-$(".part3 table").width()-5);
+			
+			$(".details").overlay({left:0,top:0,
+				
+				
+				onBeforeLoad:function() {
+                          
+				},
+
+				closeOnClick: false,
+				load: false
+
+			});
+			
+			
+
+			</script>
+			
+    <div class="poptb" align="right"></div>
+	<div class="details dialog nondisplay">
+			<a  class="close"></a>
+			<iframe  src="" style="border:none"></iframe>
+
+		</div>
+</body>
+</html>

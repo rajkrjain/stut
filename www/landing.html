@@ -1,0 +1,540 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript" src="media/js/jquery.tools.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+<link rel="stylesheet" href="media/css/tabs.css"
+      type="text/css" media="screen" />
+<link rel="stylesheet" href="media/css/tabs-panes.css"
+      type="text/css" media="screen" />
+<style>
+	
+	body{
+		background:#fff;
+	
+	}
+
+	.mainview{
+	
+		
+		
+		-webkit-background-clip: padding;
+		background-clip: padding-box;
+		-webkit-border-radius: .6em /*{global-radii-blocks}*/;
+		border-radius: .6em /*{global-radii-blocks}*/;
+		color: #333 /*{c-body-color}*/;
+		text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #fff /*{c-body-shadow-color}*/;
+		
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		font-size: 0.95em;
+		border-top: none;
+		width: 100%;
+		
+		box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+		height:100%;
+		
+	}
+	.head{
+		font-weight: 700;
+		font-size: .9em;
+		color: #07ade0;
+		margin-top: .1em;
+		
+		height:10%;
+		
+		text-overflow: ellipsis;
+		border: 1px solid #eee /*{d-bup-border}*/;
+		border-width: 0;
+		border-radius: .6em .6em 0 0;
+border-top-width: 1px;
+margin-top:0px;
+background: url('image_data/topnav-bg.gif'); 
+font-weight: bold;
+color: #333 /*{d-bup-color}*/;
+text-shadow: 0 /*{d-bup-shadow-x}*/ 1px /*{d-bup-shadow-y}*/ 0 /*{d-bup-shadow-radius}*/ #fff /*{d-bup-shadow-color}*/;
+
+	}
+	.head img{
+	    position:absolute;
+		float:left;
+	}
+	.head h2{
+		text-align:right;
+	}
+	.foot{
+		font-weight: 700;
+		font-size: .9em;
+		color: #07ade0;
+		margin-top: .1em;
+		
+		height:10%;
+		border-right-width: 1px;
+		border-left-width: 1px;
+		
+		text-overflow: ellipsis;
+		border: 1px solid #eee /*{d-bup-border}*/;
+		border-width: 0;
+		border-radius: 0 0 .6em .6em ;
+border-top-width: 1px;
+margin-top:0px;
+background: url('image_data/topnav-bg.gif'); /*{d-bup-background-color}*/;
+font-weight: bold;
+color: #333 /*{d-bup-color}*/;
+text-shadow: 0 /*{d-bup-shadow-x}*/ 1px /*{d-bup-shadow-y}*/ 0 /*{d-bup-shadow-radius}*/ #fff /*{d-bup-shadow-color}*/;
+
+	}
+	.body{
+		background:#f7f7f7;
+		height:80%;
+		margin-top:-1px;
+		padding:0px;
+		
+		
+	}
+	
+	.text1{
+		
+		font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+
+display: block;
+margin: .6em 0;
+margin-top: .1em;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+	
+	}
+	.part1{
+		
+		height:15%;
+		border-bottom:1px solid #ddd;
+	}
+	
+	.part2{
+		
+		height:100%;
+		
+	}
+	
+	.part3{
+	
+		height:10%;
+	}
+	.part2 p{
+	
+		font-weight: 300;
+
+color: #777;
+margin-bottom: .1em;
+display: block;
+margin:0;
+font-family: 'Open Sans', sans-serif;
+white-space: normal;
+font-size: 1.05em;
+	}
+	
+	.buttonmask{
+	
+		width:40px;
+		height:38px;
+		border:3px solid #666;
+		padding:3px;
+		background:#ccc;
+		border-radius:25px;
+		margin-left:2px;
+		margin-top:3px;
+		
+	}
+	.buttonmaskbig{
+	
+		width:48px;
+		height:48px;
+		border:3px solid #666;
+		padding:3px;
+		background:#ccc;
+		border-radius:30px;
+		margin-left:2px;
+		
+	}
+	.btw{
+		width:20%;
+		height:40px;
+		float:left;
+	}
+	.poptb{
+		display:none;
+		width:52px;
+		z-index:1000px;
+		height:300px;
+		
+		position:absolute;
+		background:#ccc;
+		top:11%;
+		left:10.6%;
+		border:3px solid #aaa;
+		border-radius:10px;
+		
+	}
+	.block{
+	
+		width:30%;
+		height:48%;
+		
+		margin-left:2.5%;
+		margin-top:1%;
+	
+		border-radius:10px;
+		
+		box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+		float:left;
+	}
+	.bigblock{
+	
+		width:95%;
+		height:48%;
+		
+		margin-left:2.5%;
+		margin-top:1%;
+	
+		border-radius:10px;
+		
+		box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+		float:left;
+	}
+	.unsel{
+		background:white;
+	}
+	
+	.sel{
+	
+		
+		background:#ccc;
+		
+	}
+	.block p {
+   
+   
+	text-align:left;
+    
+    font-size:12px;
+	font-weight:normal;
+	width:50%;
+	float:left;
+	
+  }
+  .block .alg{
+  
+	position:absolute;
+	width:42px;
+  }
+  .block button{
+  
+	
+	width:50%;
+	margin-left:25%;
+	height:30px;
+	margin-top:20px;
+  }
+  .block_head {
+    margin-top:0px;
+    margin-bottom:0px;
+    color:#fff;
+    background-color:#6D84B4;
+    padding:2px 1px;	
+	border-radius:5px 5px 0 0;	
+	text-align:center;
+    border:1px solid #3B5998;
+    font-size:14px;
+	font-weight:normal;
+  }
+  .block div h2{
+	
+	font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+float:left;
+
+display: block;
+margin: .6em 0;
+padding:5px;
+text-overflow: ellipsis;
+overflow: hidden;
+
+  
+  }
+   .part1 h2{
+	
+	font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+float:left;
+
+display: block;
+margin: .6em 0;
+padding:5px;
+text-overflow: ellipsis;
+overflow: hidden;
+
+  
+  }
+  
+  
+  .next:hover {
+background: #04608E;
+background: -moz-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e 100%);
+background: -o-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #69a0b6), color-stop(5%, #69a0b6), color-stop(5%, #277696), color-stop(100%, #04608e));
+background: linear-gradient(top, #69a0b6 0%,#69a0b6 1px,#277696 1px,#04608e 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#277696', endColorstr='#04608E',GradientType=0 );
+border-color: #004a73;
+}
+.next{
+background: #0571A6;
+background: -moz-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+background: -o-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #73aec9), color-stop(5%, #73aec9), color-stop(5%, #338ab0), color-stop(100%, #0571a6));
+background: linear-gradient(top, #73aec9 0%,#73aec9 1px,#338ab0 1px,#0571a6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#338AB0', endColorstr='#0571A6',GradientType=0 );
+border-color: #045a8b;
+color: #fff !important;
+border-width: 1px;
+border-style: solid;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+cursor: pointer;
+font-size: 12px;
+line-height: 1.35;
+margin-top: 10;
+overflow: visible;
+padding: 3px 10px 2px;
+text-decoration: none !important;
+vertical-align: top;
+width: auto;
+}
+.icon{
+	
+	width:60px;
+	height:60px;
+	margin-left:auto;	
+	padding:5px;	
+	border-radius:5px;
+}
+.failure{
+	margin-left:14%;
+	padding:5px;
+	display:none;
+	border:1px solid #aaa;
+	margin-top:5%;
+	position:absolute;
+	border-radius:5px;
+}
+
+.dialog {
+
+border: 1px solid #a4baca;
+background: #fdfdfd;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+width: 400px;
+display:none;
+}
+
+.dialog .header {
+position: relative;
+background: #517fa4;
+height: 44px;
+border: 1px solid #1c5380;
+border-width: 1px 1px 0;
+-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-webkit-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+background-color: #517fa4;
+background: #517fa4;
+
+background-position: 50% 50%;
+margin: -1px -1px 1px;
+}
+.dialog .logo {
+
+
+color: #fff;
+font-size: 18px;
+text-align: center;
+
+font-family: "freight-sans-pro","proxima-nova","Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+</style>
+
+</head>
+<body >
+	<div class="mainview" align="left" >
+		<div class="head" >
+			<img src="image_data/srijna_logo_tagline_small.png"/>
+			<h2>Gre Vocab</h2>
+		</div>
+		
+		<div class="body">
+			
+			<div class="part2">				
+			
+				<div class="block unsel" id="P_OP1" >
+					<h2 class="block_head">Option 1</h2>					
+					<img class="success" src="image_data/started.png"/>				
+				</div>
+				
+				<div class="block unsel" id="P_OP2">
+					<h2 class="block_head">Option 2</h2>
+					
+					<img class="success" src="image_data/started.png"/>
+					
+					
+				</div>
+				
+				
+				<div class="block unsel" id="P_OP3">
+					<h2 class="block_head">Option 3</h2>
+					
+					<img class="success" src="image_data/started.png"/>
+					
+				</div>
+				
+				<div class="bigblock unsel" id="P_OP4">
+					<h2 class="block_head">Option 4</h2>
+					
+					<img class="success" src="image_data/started.png"/>
+					
+				</div>
+				
+			</div>
+
+			
+			
+		</div>
+		
+		<div class="foot" align="center">
+			
+		</div>
+		
+		<script>
+		
+   function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+		alert("READY");
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+    }
+
+    function gotFS(fileSystem) {
+        fileSystem.root.getFile("quiz.json", null, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+
+    function gotFile(file){
+       
+        readAsText(file);
+    }
+
+  
+
+    function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+			alert(evt.target.result);
+        };
+        reader.readAsText(file);
+    }
+
+    function fail(evt) {
+        console.log(evt.target.error.code);
+    }
+	
+			$(document).ready(function(){
+				processLayouts();
+				
+			});
+			
+			
+			  
+			  
+			  
+			  function processLayouts(){
+				
+			  var appMessage =JSON.parse("{\"layouts\":[{\"template\":\"study.html\",\"logo\":\"image_data/ic_learn48.png\",\"default_field\":\"Meaning\",\"primary_category\":\"category\",\"layoutorder\":\"row1:col1\",\"name\":\"Study\",\"infotabs\":\"Meaning,Synonym,Antonym,Usage\",\"primary_type\":\"Type\",\"format\":\"info\",\"primary_field\":\"Word\",\"dataFile\":\"info_data.xml\"},{\"template\":\"quiz.jsp\",\"logo\":\"image_data/ic_quiz48.png\",\"layoutorder\":\"row1:col2\",\"name\":\"Quiz\",\"format\":\"quiz\",\"dataFile\":\"quiz_data.xml\"},{\"template\":\"browse.jsp\",\"logo\":\"image_data/ic_list48.png\",\"primary_category\":\"category\",\"layoutorder\":\"row1:col3\",\"name\":\"Browse\",\"primary_type\":\"Type\",\"format\":\"browse\",\"primary_field\":\"Word\",\"dataFile\":\"info_data.xml\"},{\"template\":\"progress.jsp\",\"logo\":\"image_data/ic_progress_average_summary_current_average48.png\",\"primary_category\":\"category\",\"layoutorder\":\"row2:col1\",\"name\":\"Progress\",\"format\":\"progress\"}]}");
+			  
+			
+				var layouts=[];
+				
+				var row=[];
+				
+				$.each(appMessage.layouts,function(i,j){
+						
+						var lo = j.layoutorder;
+						layouts[j.layoutorder]=j;
+						lo = lo.split(":");
+						//var row = parseInt(lo[0].split("row")[1]);
+						//var col = parseInt(lo[1].split("col")[1]);
+						var col=row[lo[0]];
+						
+						if(col==null){
+							col=[];
+							row[lo[0]]=col;
+						}	
+						col[lo[1]]=lo[1];
+							
+				});
+				$(".part2").html("");
+				var rows=0;
+				for(var key in row){
+					var cols=0;
+					rows++;
+					for(var key1 in row[key]){
+						var ll=(layouts[key+":"+key1]);
+						$(".part2").append("<div  class=\"block unsel "+key+"\" id=\"P_OP1\"><h2 class=\"block_head\">"+ll.name+"</h2><a href=\""+ll.template+"\"><img class=\"icon\" src=\"image_data/"+ll.logo+"\"/></a></div>	");
+						cols++;
+					}
+					$("."+key).css("width",((100-((cols+1)*2.5))/cols)+"%");
+					var bb = ($("."+key).width()-$("."+key+" .icon").width()-10)/2;
+					
+					
+				//var bh = ($("."+key).height()-$("."+key+" .icon").height())/2 -$(".block_head").height();
+				
+					$("."+key+" .icon").css("margin-left",(bb/$("."+key).width())*100+"%");
+					//$("."+key+" .icon").css("margin-top",bh);
+				
+				}
+				$(".block").css("height",((98-(rows+1))/rows)+"%");
+				var bh = ($(".block").height()-$(".block .icon").height())/2 -$(".block_head").height();
+				$(".block .icon").css("margin-top",bh);
+			  }
+			  
+			  $(".block .vt").click(function(){
+				
+			 });
+		</script>
+	</div>
+	
+	
+		
+</body>
+</html>

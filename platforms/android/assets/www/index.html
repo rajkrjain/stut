@@ -1,0 +1,978 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> 
+
+<script src="media/js/jquery.tools.min.js" type="application/x-javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="srijna.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.2.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+
+<link rel="stylesheet" href="css/srijna.css"
+      type="text/css" media="screen" />
+
+<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.css"/>	  
+	  
+<style>
+	
+	body{
+		background:#fff;
+		overflow: hidden;
+		font-family: 'Open Sans', sans-serif;
+	
+	}
+	.head img{
+	    position:absolute;
+		float:left;
+		
+	}
+	.head h2{
+		text-align:center;
+	}
+	
+	.text1{
+		
+		font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+
+display: block;
+margin: .6em 0;
+margin-top: .1em;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+	
+	}
+	.part1{
+		
+		height:15%;
+		border-bottom:1px solid #ddd;
+	}
+	
+	.part2{
+		
+		height:100%;
+		
+	}
+	
+	.part3{
+	
+		height:10%;
+	}
+	.part2 p{
+	
+		font-weight: 300;
+
+color: #777;
+margin-bottom: .1em;
+display: block;
+margin:0;
+font-family: 'Open Sans', sans-serif;
+white-space: normal;
+font-size: 1.05em;
+	}
+	
+	.buttonmask{
+	
+		width:40px;
+		height:38px;
+		border:3px solid #666;
+		padding:3px;
+		background:#ccc;
+		border-radius:25px;
+		margin-left:2px;
+		margin-top:3px;
+		
+	}
+	.buttonmaskbig{
+	
+		width:48px;
+		height:48px;
+		border:3px solid #666;
+		padding:3px;
+		background:#ccc;
+		border-radius:30px;
+		margin-left:2px;
+		
+	}
+	.btw{
+		width:20%;
+		height:40px;
+		float:left;
+	}
+	.poptb{
+		display:none;
+		width:52px;
+		z-index:1000px;
+		height:300px;
+		
+		position:absolute;
+		background:#ccc;
+		top:11%;
+		left:10.6%;
+		border:3px solid #aaa;
+		border-radius:10px;
+		
+	}
+	.block{
+	
+		width:30%;
+		height:48%;
+		cursor:pointer;
+		margin-left:2.5%;
+		margin-top:1%;
+	
+		
+		border:1px solid #ccc;
+		#box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+		float:left;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+		
+	
+	}
+	.bigblock{
+	
+		width:95%;
+		height:48%;
+		
+		margin-left:2.5%;
+		margin-top:1%;
+	
+		border-radius:10px;
+		
+		box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+		float:left;
+	}
+	.unsel{
+		background:#fff;
+		
+		
+
+
+	}
+	
+	.sel{
+	
+		
+		background:#ccc;
+		
+	}
+	.block p {
+   
+   
+	text-align:left;
+    
+    font-size:12px;
+	font-weight:normal;
+	width:50%;
+	float:left;
+	
+  }
+  .block .alg{
+  
+	position:absolute;
+	width:42px;
+  }
+  .block button{
+  
+	
+	width:50%;
+	margin-left:25%;
+	height:30px;
+	margin-top:20px;
+  }
+  .block_head {
+    margin-top:0px;
+    margin-bottom:0px;
+    color: #f0f0f0;
+    background-color:#3f51b5;
+    padding:2px 0px;	
+	text-align:center;
+    
+    font-size:14px;
+	font-weight:bold;
+  }
+   .block_head_1 {
+  
+    margin-top:0px;
+    margin-bottom:0px;
+    color: #999;
+    padding:2px 0px;	
+	text-align:center;
+   width:100%;
+    font-size:14px;
+	font-weight:bold;
+  }
+  .block div h2{
+	
+	font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+float:left;
+
+display: block;
+margin: .6em 0;
+padding:5px;
+text-overflow: ellipsis;
+overflow: hidden;
+
+  
+  }
+  .lm h2{
+	
+	
+margin: .3em 0!important;
+
+  
+  }
+   .part1 h2{
+	
+	font-weight: 700;
+font-size: .9em;
+color: #07ade0;
+float:left;
+
+display: block;
+margin: .6em 0;
+padding:5px;
+text-overflow: ellipsis;
+overflow: hidden;
+
+  
+  }
+  
+  
+  .next:hover {
+background: #04608E;
+background: -moz-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e 100%);
+background: -o-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #69a0b6), color-stop(5%, #69a0b6), color-stop(5%, #277696), color-stop(100%, #04608e));
+background: linear-gradient(top, #69a0b6 0%,#69a0b6 1px,#277696 1px,#04608e 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#277696', endColorstr='#04608E',GradientType=0 );
+border-color: #004a73;
+}
+.next{
+background: #0571A6;
+background: -moz-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+background: -o-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #73aec9), color-stop(5%, #73aec9), color-stop(5%, #338ab0), color-stop(100%, #0571a6));
+background: linear-gradient(top, #73aec9 0%,#73aec9 1px,#338ab0 1px,#0571a6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#338AB0', endColorstr='#0571A6',GradientType=0 );
+border-color: #045a8b;
+color: #fff !important;
+border-width: 1px;
+border-style: solid;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+cursor: pointer;
+font-size: 12px;
+line-height: 1.35;
+margin-top: 10;
+overflow: visible;
+padding: 3px 10px 2px;
+text-decoration: none !important;
+vertical-align: top;
+width: auto;
+}
+.icon{
+	
+	#width:60px;
+	#height:60px;
+	margin-left:auto;	
+	padding:5px;	
+	border-radius:5px;
+}
+.failure{
+	margin-left:14%;
+	padding:5px;
+	display:none;
+	border:1px solid #aaa;
+	margin-top:5%;
+	position:absolute;
+	border-radius:5px;
+}
+
+.dialog {
+
+border: 1px solid #a4baca;
+background: #fdfdfd;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+width: 400px;
+display:none;
+}
+
+.dialog .header {
+position: relative;
+background: #517fa4;
+height: 44px;
+border: 1px solid #1c5380;
+border-width: 1px 1px 0;
+-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255,255,255,0.2) inset;
+-webkit-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+background-color: #517fa4;
+background: #517fa4;
+
+background-position: 50% 50%;
+margin: -1px -1px 1px;
+}
+.dialog .logo {
+
+
+color: #fff;
+font-size: 18px;
+text-align: center;
+
+font-family: "freight-sans-pro","proxima-nova","Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+.dialog .close {
+    background-image:url(image_data/close.png);
+    position:absolute; 
+	right:0px;
+	z-index:100;
+	top:0px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+}
+
+.inn{
+	float:left;	
+	border:1px solid #aaa;
+	background-image:url('image_data/topnav-bg.gif');
+}
+.innr{
+	position:relative;
+	
+}
+.innr .lm{
+	float:left;
+	width:33%;
+	
+	height:50%;
+}
+.innr .rm{
+	float:left;
+	width:80%;
+	margin-left:10%;
+	height:50%;
+}
+
+.innr .rm img{
+	height:100%;
+	position:relative;
+	margin:0px;
+	float:left;
+	padding:0px;
+	text-align:left;
+}
+.innr .rmh{
+	width:80%;
+	float:left;
+	position:relative;
+	height:60%;
+	margin:0px;
+	margin:3px;
+	padding:0px;
+	text-align:center;
+	border-radius:8px;
+	border:1px solid #aaa;
+	background-image:url('image_data/topnav-bg.gif');
+	background-position:50% 50%;
+}
+.innr .lm img,.innr .lm h2{
+	height:100%;
+	position:relative;
+	
+	padding:0px;
+	text-align:left;
+}
+.lm h2{
+	font-size:10pt;
+}
+.sel{
+	background-color: #c53727;background-image: -webkit-linear-gradient(top,#dd4b39,#c53727);
+background-image: linear-gradient(top,#dd4b39,#c53727);
+border: 1px solid #b0281a;
+}
+</style>
+  
+	
+</head>
+<body >
+	<div class="mainview itemA" align="left" id="jqt" >
+		<div class="head"  >
+			<img id="logo" src=""></img>
+			<h2 id="appName"></h2>
+			<!-- 
+			<i class="fa fa-comments fa-5x"></i>
+			<i class="fa fa-bar-chart fa-5x"></i>
+			<i class="fa fa-search fa-5x"></i>
+			<i class="fa fa-cog fa-5x"></i>
+			<i class="fa fa-info-circle fa-5x"></i>			
+			<i class="fa fa-cloud fa-5x"></i>
+			
+			
+			 -->
+		</div>
+		
+		<div class="body">
+			<div class="part2">				
+			</div>
+		</div>
+		
+		<div class="foot" align="center">
+			<div id="menu_button">
+				<i class="fa fa-bars fa-2x" style="margin-right:10px;margin-top:15px"></i>
+			</div>
+			
+		</div>
+		
+		<div class="menu" align="center">
+			
+			
+		</div>
+		
+		
+	<div class="filters dialog">
+		<a class="close"></a>
+		<div class="header">
+			<img src=""/>
+			<h1 class="logo"></h1>
+		</div>
+		<div style="width:100%;height:90%;overflow-x:hidden;overflow-y:auto;">
+				<div class="filters_data">
+			
+				</div>
+		
+		</div>
+		
+	</div>
+
+	<div class="window dialog">
+		<a class="close"></a>
+		<div class="header" >
+			<img id="logo" src=""/>
+			<h2 id="appName"></h2>
+		</div>
+
+		<div class="data" style="width:100%;height:90%;overflow-x:hidden;overflow-y:auto;">
+				
+		
+		</div>
+		
+		
+	</div>
+	
+	<a href="#decks" class="cube" id="deck_c" style="display:none">Cube</a>
+		<script>
+			$(".decks").overlay({top:0,
+				left:0,
+				
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+                           
+				},
+				onBeforeClose:function(){
+					$(".mainview .body").fadeIn('slow');
+				},
+
+				closeOnClick: false,
+				load: false
+
+			});
+			
+			
+			
+			var selurl="";
+			var selname="";
+			
+			$(".filters").overlay({top:4,left:4,
+				
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+                           
+				},
+				onBeforeClose:function() {
+				
+					openwindow(selurl,selname);
+                           
+				},
+
+				closeOnClick: false,
+				load: false
+
+			});
+			
+			loadMenuWindow();
+			
+			var isReady=false;
+   
+			$(document).ready(function(){
+			
+				if(! isMobile.any() ){
+			
+					onDeviceReady();
+				
+				}
+				
+				
+				
+			});
+			
+			
+			var isDeckSelSupported=false;
+			var numDecks=0;
+			  var countPerDeck=0;
+			  var layoutMap=[];
+			  var filters=null;
+			  
+			  
+			  function processLayouts(){
+			  
+				$.get('json/application.json', function(appMessage) {
+				console.log(JSON.stringify(appMessage));
+				appMessage=JSON.parse(appMessage).GreVocab;
+				
+				isDeckSelSupported = appMessage.isDeckSelSupported;
+				
+				numDecks=appMessage.deckcount;
+				countPerDeck=appMessage.countPerDeck;
+				console.log("Fixing and checking counts::" + countPerDeck);
+				loadDeckSelection();
+				var layouts=[];
+				
+				var row=[];
+				
+				$(".head #logo").attr("src","image_data/"+appMessage.logo);
+				
+				$(".head #logo").css("max-height",$(".head").height()+"px");
+				
+				$(".head #appName").html(appMessage.name);
+				var miL=0;
+				console.log(JSON.stringify(appMessage.layouts));
+				$.each(appMessage.layouts,function(i,j){
+						layoutMap[j.name]=j;
+						if(j.layoutorder.indexOf(":")!=-1){
+							var lo = j.layoutorder;
+							layouts[j.layoutorder]=j;
+							lo = lo.split(":");
+							//var row = parseInt(lo[0].split("row")[1]);
+							//var col = parseInt(lo[1].split("col")[1]);
+							var col=row[lo[0]];
+							
+							if(col==null){
+								col=[];
+								row[lo[0]]=col;
+							}	
+							col[lo[1]]=lo[1];
+						
+						}else{
+						
+							if(j.layoutorder=="menu" && j.menuLayouts!=null && j.menuLayouts.indexOf("Application")!=-1 ){
+								miL++;
+								
+								if(j.name.indexOf("Customize")==-1){
+								    
+									if(j.logo.indexOf(".")!=-1){
+									
+								    	$(".menu").append("<div onclick=\"openDWindow('"+j.template+"',this);\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a>"+j.name+"</a></div>");
+								   
+								    }else{
+								    	
+								    	$(".menu").append("<div onclick=\"openDWindow('"+j.template+"',this);\"><i class=\""+j.logo+"\"></i><a>"+j.name+"</a></div>");
+								    }
+								
+								}else{
+									
+									if(j.logo.indexOf(".")!=-1){
+								
+										$(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a>"+j.name+"</a></div>");	
+								
+									}else{
+										
+										$(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><i class=\""+j.logo+"\"></i><a>"+j.name+"</a></div>");
+									}
+								}
+							}
+						}
+							
+				});
+				createMenu(miL);
+				//$(".menu").css("margin-top","-"+$(".menu").height()+"px");
+				
+				$(".part2").html("");
+				var rows=0;
+				var icW=48;
+				for(var key in row){
+					var cols=0;
+					rows++;
+					for(var key1 in row[key]){
+						var ll=(layouts[key+":"+key1]);
+						if(ll.logo.indexOf(".")!=-1){
+							$(".part2").append("<div  onclick=\"openwindow('"+ll.template+"','"+ll.name+"');\" class=\"block "+ll.name+" unsel "+key+"\" id=\"P_OP1\"><a><img class=\"icon\" src=\"image_data/"+ll.logo+"\"/></a><h2 class=\"block_head_1\">"+ll.name+"</h2></div>	");	
+						}else{
+							$(".part2").append("<div  onclick=\"openwindow('"+ll.template+"','"+ll.name+"');\" class=\"block "+ll.name+" unsel "+key+"\" id=\"P_OP1\"><a><i class=\""+ll.logo+"\"></i></a><h2 class=\"block_head_1\">"+ll.name+"</h2></div>	");
+						}
+						
+						
+						cols++;
+					}
+					$("."+key).css("width",((100-((cols+1)*2.5))/cols)+"%");
+					
+					
+					//$("."+key+" .icon").css("margin-top",bh);
+				
+				}
+					
+				
+				///////////////////
+				
+				
+				
+				
+				/////////////////////
+				
+				$(".block").css("height",((98-(rows+1))/rows)+"%");
+				
+				setIconHeight();
+				
+			  
+			  //$(".menu").height($(".foot").height());
+			  $(".block .vt").click(function(){});
+			  
+			  });
+			  
+			  
+		
+			  
+			  }
+			  
+			  function setIconHeight(){
+					var key="block";
+					var iii=$(".block").width();
+					var jjj=$(".block").height();
+					//alert(jjj);
+					var icW=48;
+					if(iii*0.8>48 && jjj*0.8>48 ){
+						icW=48;
+					}
+					if(iii*0.8>96 && jjj*0.8>96){
+						icW=96;
+					}
+					if(iii*0.8>120 && jjj*0.8>120){
+						icW=120;
+					}
+					
+					$("."+key+" .icon").width(icW);
+					$("."+key+" .icon").height(icW);
+					var bb = ($("."+key).width()-icW-10)/2;
+					
+					
+					$("."+key+" .icon").css("margin-left",(bb/$("."+key).width())*100+"%");
+					
+					var bh = ($(".block").height()-icW)/2 -$(".block_head").height();
+				
+					$(".block .icon").css("margin-top",bh);
+			  }
+			  
+			  
+			  document.addEventListener("deviceready", onDeviceReady, false);
+			  
+			  function onDeviceReady() {
+				if(!isReady){
+					isReady=true;
+					initDatabase();	
+					processLayouts();
+					getStatistics("identity_data","level");
+					setDecks();
+				}
+			
+	  
+			}
+			  
+			  function drawPlot(lA){
+					
+					//return;
+					var key="Progress";
+					
+					var bb = ($("."+key).width()-$("."+key+" .icon").width()-310)/2;
+					
+					var numwords =numDecks*countPerDeck;
+					
+				//var bh = ($("."+key).height()-$("."+key+" .icon").height())/2 -$(".block_head").height();
+					
+					var d =$("."+key+" .icon").remove();
+					
+					var d =$("."+key+" .deck_progress").remove();
+					
+					$("."+key).append("<div id=\"deck_progress\" class=\"deck head\" style=\"background:none;height:40px;margin-top:0px\"><div class=\"inn innr\" style=\"height:100%;width:99.8%\"></div></div>");
+							$("#deck_progress .innr").append("<div class=\"rm\"><img src=\"image_data/ic_level_got_it_perfect48.png\"/><div class=\"rmh\" style=\"padding-bottom:3px\" >"+lA[3]+" ("+lA[3]/numwords+"%)</div></div>");
+							$("#deck_progress .innr").append("<div class=\"lm\"><img src=\"image_data/ic_level_barely_know48.png\"/><h2>"+lA[0]+"/"+numwords+"</h2></div>");
+							$("#deck_progress .innr").append("<div class=\"lm\"><img src=\"image_data/ic_level_getting_better48.png\"/><h2>"+lA[1]+"/"+numwords+"</h2></div>");
+							$("#deck_progress .innr").append("<div class=\"lm\"><img src=\"image_data/ic_level_almost_there48.png\"/><h2>"+lA[2]+"/"+numwords+"</h2></div>");
+					
+					$("."+key).append("<img class=\"icon\" src=\"image_data/wide_deck_completed.png\">");				
+					$("."+key).append("<img class=\"icon\" src=\"image_data/wide_deck_available_in_pro_version.png\">");				
+					$("."+key+" .icon").css("width",(($("."+key).width())/2-5));
+					$("."+key+" .icon").css("padding","0px");
+					$("."+key+" .icon").css("margin-top","-2px");
+					
+					$("."+key+" .icon").css("height",$(".block .icon").height()-30);
+					//$("."+key+" .icon").css("margin-left",(($("."+key).width())/2-$("."+key+" .icon").width())/2+"px");
+					$("."+key+" .icon").css("float","left");
+					
+					
+					
+			  
+			  }
+			  
+			  function openwindow(url,name){
+				selurl=url;
+				selname=name;
+				if(isDeckSelSupported && name!="Progress" && name!="Lookup"){
+					$(".decks .body div").remove();
+					//$(".deck").remove();
+					loadDeckSelection();
+					var numwords=countPerDeck;
+					
+					
+					fetchDeckSelection(name,function(dataSel){
+						//alert(name+":"+dataSel);
+					
+						if(dataSel!=null && dataSel!=""){
+						
+							var ss=dataSel.split(",");
+							
+							for(var si=0;si<ss.length;si++){
+							
+								decks[ss[si]]=true;
+							}
+						}
+						getDeckstats(function(decksD){
+						
+						for(var i=1;i<=numDecks;i++){
+						
+								var dNum=0;
+								if(decksD[i+""+2]){
+									dNum+=decksD[i+""+2];
+								}else{
+									decksD[i+""+2]=0;
+									dNum+=0;
+								}
+								
+								if(decksD[i+""+3]){
+									dNum+=decksD[i+""+3];
+								}else{
+									decksD[i+""+3]=0;
+									dNum+=0;
+								}
+							
+								if(decksD[i+""+4]){
+									dNum+=decksD[i+""+4];
+								}else{
+									decksD[i+""+4]=0;
+									dNum+=0;
+								}
+								var tr=dNum;
+								
+								if(decksD[i+""+1]){
+									tr+=decksD[i+""+1];
+								}
+								decksD[i+""+5]=tr;
+								decksD[i+""+1]=(numwords-dNum);
+						}
+						
+						for(var i=1;i<=numDecks;i++){
+						
+							var sse=decks[i]?"sel":"";
+					
+							$(".decks .body").append("<div id=\"deck_"+i+"\" class=\"deck head\" style=\"background:none;height:50px\"><div class=\"inn innl "+sse+"\"  style=\"height:100%;width:12%\"><div style=\"text-align:center;position:relative;height:100%;background-size:100% 100%;background-image:url('image_data/ic_deck72.png')\" ><h2 style=\"margin:0px;text-align:center;padding:10px;\">"+i+"</h2></div></div><div class=\"inn innr\" style=\"height:100%;width:83%\"></div></div>");
+							if(decksD[i+""+5]>=5 && decksD[i+""+4]>0){
+							
+							$("#deck_"+i+" .innr").append("<div class=\"rm\"><img src=\"image_data/ic_level_got_it_perfect48.png\"/><div class=\"rmh\" >"+decksD[i+""+4]+" ("+decksD[i+""+4]*100/numwords+"%)</div></div>");
+							$("#deck_"+i+" .innr").append("<div class=\"lm\"><img src=\"image_data/ic_level_barely_know48.png\"/><h2>"+decksD[i+""+1]+"/"+numwords+"</h2></div>");
+							$("#deck_"+i+" .innr").append("<div class=\"lm\"><img src=\"image_data/ic_level_getting_better48.png\"/><h2>"+decksD[i+""+2]+"/"+numwords+"</h2></div>");
+							$("#deck_"+i+" .innr").append("<div class=\"lm\"><img src=\"image_data/ic_level_almost_there48.png\"/><h2>"+decksD[i+""+3]+"/"+numwords+"</h2></div>");
+						
+							}else{
+								$("#deck_"+i+" .innr").append("<div align=\"center\" style=\"width:100%;height:100%;background-image:url(image_data/rubber_stamp_no_significant_progress.png);background-size:contain;background-repeat:no-repeat;background-position:50%;\"></div>");
+							}
+					
+						}
+						var st=rangeFormatter();
+						$(".decks .foot h2").html("Selected decks : ["+ st + "]");
+					//alert($(".innl").width());
+					$(".decks .deck").click(function(){
+						var did = $(this).attr("id").split("deck_")[1];
+						
+						if(!$(".innl" , $(this)).hasClass("sel")){
+						
+							$(".innl" , $(this)).addClass("sel");
+							decks[did]=true;
+						
+						}else{
+							$(".innl" , $(this)).removeClass("sel");
+							decks[did]=false;
+						}
+						
+						
+						var st=rangeFormatter();
+						updateDeckSelectionAll(name,decks);
+						$(".decks .foot h2").html("Selected decks : ["+ st + "]");
+						
+					});
+					//$(".mainview .body").hide('slow',function(){
+					
+					//$("#deck_c").click();
+						//$(".decks").overlay().load();
+						$(".decks").addClass("transparent");
+						$(".decks .close").click(function(){
+							$(".decks").removeClass("transparent");
+							
+						});
+					//});
+				
+					
+					$(".innl img").css("margin-left",(($(".innl").width()-50)/2)+"px");
+					$(".decks .foot img").click(function(){
+												
+						if(!$(".innl").hasClass("sel")){
+							
+							
+						}else{
+							
+							window.open(url,'_self');
+							
+						}
+					});
+						
+						
+					});
+					
+					$(".decks .foot").click(function(){
+					
+						if(!$(".innl").hasClass("sel")){
+							
+							
+						}else
+						
+							window.open(url,'_self');
+					});
+					$(".decks #dhead").html(name+" Deck Selection");
+					
+					});
+					$(".decks #dheadim").click(function(){
+					
+						
+					
+						parseFilters(layoutMap[name],function callBack(settings){
+							
+							$(".filters_data").html(getFiltersHtml(layoutMap[name],settings));
+							filters=settings;
+							loadFilters(layoutMap[name],settings);
+						});
+						
+					});
+					
+					
+				}else{
+					window.open(url,'_self');
+				}
+			  }
+			  
+			  function setFilters(fil){
+				
+					filters=fil;
+			  
+			  }
+			 function rangeFormatter() {
+
+				if (decks.length==0) {
+					return "[ ]";
+				}
+
+				var cVal = -1;
+				
+				var array=new Array();
+				
+				for ( var key in decks) {
+				
+					if(!decks[key])
+					continue;
+					
+					if (cVal != key - 1) {
+						array[array.length]=key;
+					} else {
+						var range = array[array.length-1].split("-");
+						array[array.length-1]=range[0] + "-" + key;
+					}
+					cVal = key;
+				}
+
+				return array;
+			}
+			  var decks=[];
+			  
+			  function loadDeckSelection(){
+			  
+				for(var i=1;i<=numDecks;i++){
+					decks[i]=false;
+				}
+			  }
+			  
+			  
+			  $("#dheadim").css("height",$(".decks .head").height()+"%");
+			  
+			
+			function setDecks(){
+				$(".decks").width($(".mainview").width());
+				$(".decks").height($(".mainview").height());
+				$(".decks .head img").css("height","11%");
+				$(".decks").css("top",$(".mainview").position().top+"px");
+			}
+			
+		</script>
+	</div>
+	
+	<div id="decks" class="decks dialog itemA check" style="display:block;position:absolute;top:0px">
+			<a  class="close"></a>
+
+			<div class="head">
+				
+				
+				<img id="dheadim" src="image_data/ic_filter96.png" style="float:right"/>
+				<h2 id="dhead" style="text-align:center"></h2>
+			</div>
+			
+			<div class="body" style="display:block;overflow:auto">
+				
+				
+				
+				
+			</div>
+			
+			<div class="foot" align="center">
+				
+				
+				<img src="image_data/ic_arrow_right96.png" style="height:100%;float:right;"/>
+					<h2 style="text-align:center"></h2>
+			
+			</div>
+
+		</div>
+			
+</body>
+</html>

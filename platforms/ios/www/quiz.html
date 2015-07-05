@@ -1,0 +1,895 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
+<script type="text/javascript" src="media/js/jquery.tools.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="srijna.js"></script>
+<link rel="stylesheet" href="css/srijna.css" type="text/css"
+	media="screen" />
+	
+
+<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.css"/>	
+<style>
+body {
+	background: #fff;
+	  overflow: hidden;
+}
+
+.text1 {
+	font-weight: 700;
+	font-size: .9em;
+	color: #07ade0;
+	display: block;
+	margin: .6em 0;
+	margin-top: .1em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.part1 {
+	height: 20%;
+	border-bottom: 1px solid #ddd;
+}
+
+.part2 {
+	height: 80%;
+}
+
+.part3 {
+	height: 10%;
+}
+
+.part2 p {
+	font-weight: 300;
+	color: #777;
+	margin-bottom: .1em;
+	display: block;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	white-space: normal;
+	font-size: 1.05em;
+}
+
+.buttonmask {
+	width: 40px;
+	height: 38px;
+	border: 3px solid #666;
+	padding: 3px;
+	background: #ccc;
+	border-radius: 25px;
+	margin-left: 2px;
+	margin-top: 3px;
+}
+
+.buttonmaskbig {
+	width: 48px;
+	height: 48px;
+	border: 3px solid #666;
+	padding: 3px;
+	background: #ccc;
+	border-radius: 30px;
+	margin-left: 2px;
+}
+
+.btw {
+	width: 20%;
+	height: 40px;
+	float: left;
+}
+
+.poptb {
+	display: none;
+	width: 52px;
+	z-index: 1000px;
+	height: 300px;
+	position: absolute;
+	background: #ccc;
+	top: 11%;
+	left: 10.6%;
+	border: 3px solid #aaa;
+	border-radius: 10px;
+}
+
+.block {
+	width: 50%;
+  height: 46%;
+  /* margin-left: 5%; */
+  /* border-radius: 10px; */
+  border: 1px solid #f0f0f0;
+  float: left;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.unsel {
+	background: white;
+}
+
+.sel {
+	background: #ccc;
+}
+
+.block p {
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	width: 50%;
+	float: left;
+}
+
+.block .alg {
+	position: absolute;
+	width: 42px;
+}
+
+.block button {
+	width: 50%;
+	margin-left: 25%;
+	height: 30px;
+	margin-top: 20px;
+}
+
+.block_head {
+  position: absolute;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  background: #ffc107!important;
+  width: 25px;
+  padding-top: 5px;
+  margin-top: 0px;
+  opacity: 0.8;
+  /* right: 0px; */
+  /* left: 80%; */
+  margin-bottom: 0px;
+  color: #000;
+  text-align: center;
+  /* border: 1px solid #3B5998; */
+  font-size: 12px;
+  font-weight: bold;
+  /* position: absolute; */
+  margin-left: 23%;
+  /* margin-top: 5%; */
+  /* border-radius: 5px; */
+}
+
+.block div h2 {
+	font-weight: 700;
+	font-size: .8em;
+	color: #222;
+	float: left;
+	display: block;
+	margin: .2em 0;
+	padding: 2px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.part1 h2 {
+	font-weight: 700;
+	font-size: .9em;
+	color: #444;
+	float: left;
+	display: block;
+	margin: .2em 0;
+	padding: 2px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.Submit {
+	background: url('image_data/button_submit.png');
+	border-color: #004a73;
+}
+
+.Next {
+	background: url('image_data/button_next.png');
+	border-color: #004a73;
+}
+
+.next {
+	background-size: 100%;
+	width: 100px;
+	height: 30px;
+	color: #fff !important;
+	border-width: 0px;
+	border-style: none;
+	margin-top: 5px;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 1.35;
+	overflow: visible;
+	padding: 3px 10px 2px;
+	text-decoration: none !important;
+	vertical-align: top;
+}
+
+.success {
+	display: none;
+	position: absolute;
+	margin-left: 15%;
+	margin-top: 5%;
+	border-radius: 5px;
+}
+
+.failure {
+	margin-left: 14%;
+	padding: 5px;
+	display: none;
+	margin-top: 5%;
+	position: absolute;
+	border-radius: 5px;
+}
+
+.dialog {
+	padding: 10px;
+	border: 1px solid #a4baca;
+	background: #fdfdfd;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	max-width: 100%;
+	height: auto;
+	display: none;
+}
+
+.dialog .header {
+	position: relative;
+	background: #517fa4;
+	height: 44px;
+	border: 1px solid #1c5380;
+	border-width: 1px 1px 0;
+	-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0
+		rgba(255, 255, 255, 0.2) inset;
+	-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0
+		rgba(255, 255, 255, 0.2) inset;
+	box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255, 255, 255, 0.2)
+		inset;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	background-color: #517fa4;
+	background: #517fa4;
+	background-position: 50% 50%;
+	margin: -1px -1px 1px;
+}
+
+.dialog .logo {
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	font-family: "freight-sans-pro", "proxima-nova", "Helvetica Neue", Arial,
+		Helvetica, sans-serif;
+}
+
+.dialog div h2 {
+	font-size: 12pt;
+}
+
+.dialog div a {
+	width: 50%;
+	font-size: 12pt;
+}
+
+.head img {
+	max-height: 100%;
+}
+
+.small {
+	height: 50%;
+}
+
+.headc {
+	float: left;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	position: absolute;
+	width: auto;
+	text-align: right;
+}
+
+.head .rh {
+	font-size: 9pt;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+.details .close {
+	background-image: url(image_data/close.png);
+	position: absolute;
+	right: 0px;
+	z-index: 100;
+	top: 0px;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+}
+
+.details table tr {
+	width: 100%;
+	display: table; /* this makes borders/margins work */
+	border-bottom: 1px solid #aaa;
+	background: #272728;
+}
+
+td {
+	font-weight: 700;
+	font-size: .9em;
+	color: #fff;
+	display: block;
+	margin: .6em 0;
+	margin-top: .1em;
+	text-overflow: ellipsis;
+}
+.filt{
+	z-index:10000;
+}
+
+#cindex{
+	line-height: 14px;
+margin: 0px;
+padding: 0px;
+width:50px;
+color:black;
+text-align:center;
+font-size: 12pt;
+}
+
+</style>
+
+</head>
+<body>
+	<input type="hidden" value="Quiz" id="layout" />
+	<div class="mainview" align="left">
+		<div class="head">
+			<div class="headc filt" style="height:100%">
+				<img id="filter" class="left filt" src="image_data/ic_quiz_mode96.png" />
+			</div>
+
+			<div class="headc correct">
+				<img id="right" class="left small"
+					src="image_data/ic_check_mark48.png" />
+				<h2 class="left rh"></h2>
+			</div>
+
+			<div class="headc fail">
+				<img id="wrong" class="right small"
+					src="image_data/ic_cross_mark48.png" />
+				<h2 class="right rh"></h2>
+			</div>
+
+			<div class="headc" style="height:100%">
+				<img id="timer" class="right" src="image_data/ic_play96.png" />
+
+			</div>
+			<h2 id="timer_t" class="center right"></h2>
+		</div>
+
+		<div class="body">
+			<div class="part1" id="Q"></div>
+			<div class="part2">
+
+				<div class="block unsel" id="P_OP1">
+					<h2 class="block_head">1</h2>
+					<div id="OP1"></div>
+					<img class="success" src="image_data/ic_check_mark48.png" /> <img
+						class="failure" src="image_data/ic_cross_mark48.png" />
+
+				</div>
+				<div class="block unsel" id="P_OP2">
+					<h2 class="block_head">2</h2>
+					<div id="OP2"></div>
+					<img class="success" src="image_data/ic_check_mark48.png" /> <img
+						class="failure" src="image_data/ic_cross_mark48.png" />
+
+
+				</div>
+				<div class="block unsel" id="P_OP3">
+					<h2 class="block_head">3</h2>
+					<div id="OP3"></div>
+					<img class="success" src="image_data/ic_check_mark48.png" /> <img
+						class="failure" src="image_data/ic_cross_mark48.png" />
+
+				</div>
+
+				<div class="block unsel" id="P_OP4">
+					<h2 class="block_head">4</h2>
+					<div id="OP4"></div>
+					<img class="success" src="image_data/ic_check_mark48.png" /> <img
+						class="failure" src="image_data/ic_cross_mark48.png" />
+
+				</div>
+				<h2 style="position:absolute;"  id="cindex" ></h2>
+
+			</div>
+
+
+
+		</div>
+
+		<div class="foot" align="center">
+			<div id="menu_button">
+			
+				<i class="fa fa-bars fa-2x" style="margin-right:10px;margin-top:15px"></i>
+			
+			</div>
+			<button onclick="next();" class="next"></button>
+		</div>
+		<div class="menu" align="center"></div>
+
+
+	</div>
+
+	<div class="results dialog">
+		<div class="header">
+			<h1 class="logo">Quiz Statistics</h1>
+		</div>
+
+		<div id="test_status"></div>
+		<div id="button">
+
+			<a href="index.html" class="button">Cancel</a> <a class="button"
+				onclick="showDetails();">View Summary</a>
+		</div>
+	</div>
+
+	<div class="details dialog"
+		style="width: 96%; height: auto; overflow-y: auto; position: absoulute">
+
+		<div class="header">
+			<h1 class="logo">Quiz Summary</h1>
+		</div>
+
+
+		<div id="detail_status"></div>
+
+	</div>
+	<div class="loading dialog">
+		
+		<div style="width:100%;height:100%" align="center">
+			<img style="margin: auto;" align="center" src="image_data/ajax-loader.gif">
+		</div>
+		<h1>Loading............</h1>
+	
+	</div>
+	<div class="filters dialog">
+		<a class="close"></a>
+		<div class="header">
+			<img src=""/>
+			<h1 class="logo"></h1>
+		</div>
+		<div style="width:100%;height:90%;overflow-x:hidden;overflow-y:auto;">
+				<div class="filters_data">
+			
+				</div>
+		
+		</div>
+		
+	</div>
+	
+	<script>
+			  
+			$(".results").overlay({
+				
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+                      
+				},
+
+				closeOnClick: false,
+				load: false
+
+			});
+			
+			$(".loading").overlay({
+				
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+                           
+				},
+
+				closeOnClick: false,
+				load: true
+
+			});
+			
+			$(".mainview").css("display","none");
+			
+			
+
+			$(".details").overlay({
+				top:0,
+				left:0,
+				
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+                           
+				},
+
+				closeOnClick: false,
+				load: false
+
+			});
+
+			function showResults(){
+				$(".mainview").hide('slow',function(){
+					$(".results").show('slow');
+				
+				});
+				
+				
+			}
+			
+			
+			function showDetails(){
+				var dd="<table style=\"width:100%;\">";
+				for(var i=0;i<questions.length;i++){
+				
+				    if(failArray[i]!=undefined && questions.id==failArray[i].id)
+					dd=dd+"<tr><td style=\"width:90%;\">"+questions[i].Q+"</td><td style=\"width:10%;\"><img  src=\"image_data/ic_cross_mark48.png\"/></td></tr>";
+				}
+				dd+="</table>";
+				$("#detail_status").html(dd);
+				$(".details").overlay().load();
+				$(".details").css("position","absolute");
+			}
+		
+			var questions=new Array();
+			var index=0;
+			//var js =  JSON.parse("[{\"OP2\":\"DD00\",\"id\":100,\"OP1\":\"Dhhh\",\"OP4\":\"DDsss\",\"OP3\":\"DDmm\",\"Q\":\"Who are U?\",\"A\":\"OP2\",\"multiple\":true},{\"OP2\":\"DD2\",\"id\":100,\"OP1\":\"DD1\",\"OP4\":\"DD4\",\"OP3\":\"DD3\",\"Q\":\"What  U want?\",\"A\":\"OP2\",\"multiple\":false}]");
+			 
+			//  var js =  JSON.parse("<%=qs.loadQuestions().replace("\"","\\\"")%>");
+			
+			var studyLay=null;
+			var successArray=[];
+			var failArray=[];
+			document.addEventListener("deviceready", onDeviceReady, false);
+			  function onDeviceReady() {
+      
+				initDatabase();	
+				startApplication();	  
+				
+				
+				//alert("One");
+				
+				
+	  
+			}
+			
+			$(document).ready(function(){
+			
+				if(! isMobile.any() ){
+			
+					onDeviceReady();
+				
+				}
+				
+				
+				
+			});
+			
+			var miL=0;
+			function startApplication(){
+			
+				$.getJSON('json/application.json', function(appMessage) {
+				appMessage=appMessage.GreVocab;
+
+				
+				
+				  
+				  $.each(appMessage.layouts,function(i,j){
+							if(j.layoutorder=="menu" && j.menuLayouts!=null && j.menuLayouts.indexOf($("#layout").val())!=-1 ){
+								miL++;
+								$(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a href=\""+j.template+"\">"+j.name+"</a></div>");	
+							}
+							
+
+							
+							if(j.name==$("#layout").val()){
+							
+								layObj=j;
+								//parseData();
+							}	
+							if(j.name=="Study"){
+							
+								studyLay=j;
+								//parseData();
+							}	
+					});
+					
+					startApp();
+				});
+			
+			}
+			
+			function startApp(){
+			
+				
+				$.getJSON("json/quiz.json",function(js){
+					//var js = $.getJSON('json/quiz.json', function(d) {
+					
+					$.each(js.data,function(i,j){
+					
+						questions=j;
+					
+					});
+					
+				/*	parseSettings(layObj,function callBack(settings){
+						alert(settings);
+					});*/
+					setDeckSupported($("#layout").val(),function(){
+					parseFilters(layObj,function callBack(filters){
+							
+							questions = getSelectedDeckData(questions);
+							
+							
+							
+							fillUserData(questions,studyLay.name,function(dataOut){
+												questions=dataOut;
+												
+												questions =getFilteredData(questions,filters);
+												
+												var properties = [];
+												for (var prop in filters) {
+												if (typeof filters[prop] != 'function') {
+														properties[prop]=(filters[prop]).value;
+												}
+												}
+												//alert(properties);
+												
+												if(filters.quiz_type.value=="true"){
+												
+													questions = infoToQuestionAdaptor(studyLay,questions,undefined,properties);
+										
+												}else{
+												
+													questions = infoToQuestionAdaptor(studyLay,questions,filters.count_type.value,properties);
+												}
+												
+												next();
+										
+												
+												
+												
+												
+												if(filters.quiz_type.value=="true"){
+												
+													startQuiz(filters.count_type.value,false);
+												
+												}else{
+												
+													startQuiz(60,true);
+												}
+												
+												
+												
+							},1);		
+							
+							
+							
+							
+					});
+					
+					});
+					
+					
+					
+				
+					
+				});	
+				
+				
+			}
+			var isReverse;
+			var timerVal;
+			function startQuiz(timerValA,isReverseA){
+				timerVal=timerValA;
+				isReverse=isReverseA;
+				
+				$(".loading").overlay().close();				
+				$(".mainview").show('slow',function(){
+					$(".headc").width($(".head").width()/4);
+					$("#timer_t").width(70);
+					$("#timer_t").css("margin-left",($(".head").width()-70)+"px");
+					var timerObj =createTimer(timerVal*60,function(val){
+						
+						if(isReverse){
+							$("#timer_t").html(timerVal*60-val);
+						}else
+							$("#timer_t").html(val);
+					},function(val){
+					
+						if(isReverse){
+							$("#timer_t").html(timerVal*60-val);
+						}else
+							$("#timer_t").html(val);
+
+						//$("#timer_t").html(val);
+						onTestFinish();
+					
+					});
+					
+					$("#cindex").css("top",$(".foot").position().top-16);
+					$("#cindex").css("left",($(".part2").width()-50)/2);
+					createMenu(miL);
+			
+				});
+				
+			}
+			function onTestFinish(){
+			
+					clearInterval(timerObj);
+					
+						var status="Fail.\n You have to work hard";
+						if((successArray.length*100/questions.length)>70){
+							status="Pass";
+						}
+						
+						$("#test_status").html("<h2>Score : ( "+successArray.length+"/"+questions.length+" ) "+Math.floor((successArray.length*100/questions.length))+"%</h2><h2>Status : "+status+"</h2>");
+						
+						showResults();
+						
+			}
+			function next(){
+					
+				
+					if($(".next").hasClass("Finish")){
+						
+						onTestFinish();
+						return;
+					}
+				
+					if($(".next").hasClass("Submit")){					
+					
+					if(index>0){
+					/*$.get("actions.jsp?action=VALIDATE_ANSWER&qid="+questions[index-1].id+"&option="+$(".block.sel div").attr("id"),function(data){
+							
+							if(data.indexOf("SUCCESS")!=-1){
+								$(".block.sel .success").css("display","block");
+							}else{
+								$(".block.sel .failure").css("display","block");
+								$("#P_"+data.split(":")[1]+" .success").css("display","block");
+							}
+							if(index==questions.length){
+								$(".next").html("Finish");
+							}else
+								$(".next").html("Next");
+							//proceed();
+					});*/
+					
+						if(questions[index-1].A==$(".block.sel div").attr("id")){
+						
+							$(".block.sel .success").css("display","block");
+							
+							successArray[successArray.length]=(questions[index-1]).id;
+							
+						}else{
+							$(".block.sel .failure").css("display","block");
+							
+							$("#P_"+questions[index-1].A+" .success").css("display","block");
+							
+							failArray[failArray.length]=(questions[index-1]).id;
+							
+						
+						}
+						
+						
+						$(".correct h2").html("( "+successArray.length+"/"+questions.length+" )"+Math.floor((successArray.length*100/questions.length))+"%");
+						
+						$(".fail h2").html("( "+failArray.length+"/"+questions.length+" )"+Math.floor((failArray.length*100/questions.length))+"%");
+						
+						
+						$(".next").css("background-image","url('image_data/button_next.png')");
+						$(".next").removeClass("Next");
+						$(".next").removeClass("Submit");
+						if(index==questions.length){
+								$(".next").addClass("Finish");
+						}else
+							$(".next").addClass("Next");
+						
+						
+					
+					}else{
+						proceed();
+					}
+					
+					}else{
+					
+						proceed();
+					}
+					
+				}
+				
+				function proceed(){
+					
+					$(".next").removeClass("Next");
+					$(".next").removeClass("Submit");
+					$(".block").removeClass("sel");
+					$(".block .success").css("display","none");
+					$(".block .failure").css("display","none");
+					var j=questions[index++];
+				
+					$("#OP1").html("<h2>"+j.OP1+"<h2>");
+					$("#OP2").html("<h2>"+j.OP2+"<h2>");
+					$("#OP3").html("<h2>"+j.OP3+"<h2>");
+					$("#OP4").html("<h2>"+j.OP4+"<h2>");
+					
+					$("#Q").html("<h2>"+j.Q+"<h2>");
+					$(".next").css("background-image","url('image_data/button_submit.png')");
+					$(".next").addClass("Submit");
+					$("#cindex").html((index)+"/"+questions.length);
+					
+				}
+				
+				$(".block").click(function(){
+					if($(".next").hasClass("Submit")){
+				
+					//$("div",$(this)).attr("id");
+					$(".block").removeClass("sel");
+					$(".block").addClass("unsel");
+					$(this).removeClass("unsel");
+					$(this).addClass("sel");//attr("id");
+					
+					}
+					
+				});
+				
+				
+	
+				$(".filters").overlay({top:2,
+				
+				mask: {  color: '#fff',   loadSpeed: 200,   opacity: 0.5  },
+				onBeforeLoad:function() {
+							
+						   
+				},
+				onBeforeClose:function(){
+					if(isFilterChanged)
+						window.open(layObj.template,"_self");
+				},
+				
+				closeOnClick: false,
+				load: false
+
+				});
+				var filters=null;
+				 function setFilters(fil){
+				
+					filters=fil;
+			  
+			  }
+			     $(".filt").click(function(){
+					
+					
+				 
+					parseFilters(layObj,function callBack(settings){
+							
+							$(".filters_data").html(getFiltersHtml(layObj,settings,true));
+							filters=settings;
+							loadFilters(layObj,settings);
+							
+					},undefined,true);
+				 });
+				
+			 
+			</script>
+
+</body>
+</html>

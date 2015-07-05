@@ -1,0 +1,690 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript" src="media/js/jquery.tools.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="srijna.js"></script>
+<link rel="stylesheet" href="css/srijna.css" type="text/css"
+	media="screen" />
+<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.css"/>	
+
+<style>
+body {
+	background: #fff;
+	overflow:hidden;
+}
+
+.text1 {
+	font-weight: 700;
+	font-size: .9em;
+	color: #07ade0;
+	display: block;
+	margin: .6em 0;
+	margin-top: .1em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.part1 {
+	height: 20%;
+	border-bottom: 1px solid #ddd;
+}
+
+.part2 {
+	height: 80%;
+}
+
+.part3 {
+	height: 10%;
+}
+
+.part2 p {
+	font-weight: 300;
+	color: #777;
+	margin-bottom: .1em;
+	display: block;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	white-space: normal;
+	font-size: 1.05em;
+}
+
+.buttonmask {
+	width: 40px;
+	height: 38px;
+	border: 3px solid #666;
+	padding: 3px;
+	background: #ccc;
+	border-radius: 25px;
+	margin-left: 2px;
+	margin-top: 3px;
+}
+
+.buttonmaskbig {
+	width: 48px;
+	height: 48px;
+	border: 3px solid #666;
+	padding: 3px;
+	background: #ccc;
+	border-radius: 30px;
+	margin-left: 2px;
+}
+
+.btw {
+	width: 20%;
+	height: 40px;
+	float: left;
+}
+
+.poptb {
+	display: none;
+	width: 52px;
+	z-index: 1000px;
+	height: 300px;
+	position: absolute;
+	background: #ccc;
+	top: 11%;
+	left: 10.6%;
+	border: 3px solid #aaa;
+	border-radius: 10px;
+}
+
+.block {
+	width: 40%;
+	height: 46%;
+	margin-left: 5%;
+	margin-top: 1%;
+	border-radius: 10px;
+	border: 1px solid #aaa;
+	float: left;
+}
+
+.unsel {
+	background: white;
+}
+
+.sel {
+	background: #ccc;
+}
+
+.block p {
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	width: 50%;
+	float: left;
+}
+
+.block .alg {
+	position: absolute;
+	width: 42px;
+}
+
+.block button {
+	width: 50%;
+	margin-left: 25%;
+	height: 30px;
+	margin-top: 20px;
+}
+
+.block_head {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #fff;
+	background-color: #6D84B4;
+	padding: 2px 0px;
+	width: 99%;	
+	text-align: center;
+	border: 1px solid #3B5998;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.block div h2 {
+	font-weight: 700;
+	font-size: .8em;
+	color: #222;
+	float: left;
+	display: block;
+	margin: .2em 0;
+	padding: 2px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.part1 h2 {
+	font-weight: 700;
+	font-size: .9em;
+	color: #444;
+	float: left;
+	display: block;
+	margin: .2em 0;
+	padding: 2px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.Submit {
+	background: url('image_data/button_submit.png');
+	border-color: #004a73;
+}
+
+.Next {
+	background: url('image_data/button_next.png');
+	border-color: #004a73;
+}
+
+.next {
+	background-size: 100%;
+	width: 100px;
+	height: 30px;
+	color: #fff !important;
+	border-width: 0px;
+	border-style: none;
+	margin-top: 5px;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 1.35;
+	overflow: visible;
+	padding: 3px 10px 2px;
+	text-decoration: none !important;
+	vertical-align: top;
+}
+
+.success {
+	display: none;
+	position: absolute;
+	margin-left: 14%;
+	margin-top: 5%;
+	border-radius: 5px;
+}
+
+.failure {
+	margin-left: 14%;
+	padding: 5px;
+	display: none;
+	margin-top: 5%;
+	position: absolute;
+	border-radius: 5px;
+}
+
+.dialog {
+	padding: 10px;
+	border: 1px solid #a4baca;
+	background: #fdfdfd;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	width: 50%;
+	height: auto;
+	display: none;
+}
+
+.dialog .header {
+	position: relative;
+	background: #517fa4;
+	height: 44px;
+	border: 1px solid #1c5380;
+	border-width: 1px 1px 0;
+	-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0
+		rgba(255, 255, 255, 0.2) inset;
+	-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0
+		rgba(255, 255, 255, 0.2) inset;
+	box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255, 255, 255, 0.2)
+		inset;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	background-color: #517fa4;
+	background: #517fa4;
+	background-position: 50% 50%;
+	margin: -1px -1px 1px;
+}
+
+.dialog .logo {
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	font-family: "freight-sans-pro", "proxima-nova", "Helvetica Neue", Arial,
+		Helvetica, sans-serif;
+}
+
+.dialog div h2 {
+	font-size: 12pt;
+}
+
+.dialog div a {
+	width: 50%;
+	font-size: 12pt;
+}
+
+.head img {
+	max-height: 100%;
+}
+
+.small {
+	height: 50%;
+}
+
+.headc {
+	float: left;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	position: absolute;
+	width: auto;
+	text-align: right;
+}
+
+.head .rh {
+	font-size: 9pt;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+.details .close {
+	background-image: url(image_data/close.png);
+	position: absolute;
+	right: 0px;
+	z-index: 100;
+	top: 0px;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+}
+
+.details table tr {
+	width: 100%;
+	display: table; /* this makes borders/margins work */
+	border-bottom: 1px solid #aaa;
+	background: #272728;
+}
+
+td {
+	color: #fff;
+	display: block;
+	margin: .6em 0;
+	margin-top: .1em;
+	text-overflow: ellipsis;
+}
+
+ul {
+	padding: 0px;
+	background: #f7f7f7;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+	padding: 10px;
+}
+
+li {
+	list-style: none;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+
+li:first-child {
+	border-top: 1px solid #eee;	
+	text-align: center;
+	height: 25px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #fff;
+	background-color: #6D84B4;
+	padding: 2px 0px;
+	text-align: center;
+	border: 1px solid #3B5998;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+li:last-child {
+	border-radius: 0px 0px 5px 5px;
+}
+
+.lid {
+	
+}
+
+li h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+}
+
+td {
+	color: black;
+}
+
+.body {
+	overflow: auto;
+}
+
+li.sub {
+	background-color: #fafafa;
+	background-image: -moz-linear-gradient(top, #fff, #f2f2f2);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff),
+		to(#f2f2f2));
+	background-image: -webkit-linear-gradient(top, #fff, #f2f2f2);
+	background-image: -o-linear-gradient(top, #fff, #f2f2f2);
+	background-image: linear-gradient(to bottom, #fff, #f2f2f2);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',
+		endColorstr='#fff2f2f2', GradientType=0);
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+</style>
+
+</head>
+<body>
+	<input type="hidden" value="Progress" id="layout" />
+	<div class="mainview" align="left">
+		<div class="head" >
+			<h2 style="text-align: center">Progress</h2>
+		</div>
+
+		<div class="body" style="margin-top:7px">
+
+			<ul>
+				<li>Snapshot Summary</li>
+				<li>
+
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_progress_snapshot_summary_read48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Read</h2></td>
+							<td style="width: 60%"><h2 id="read"></h2></td>
+						</tr>
+					</table>
+
+				</li>
+				<li>
+
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_level_got_it_perfect48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Surely</h2></td>
+							<td style="width: 60%"><h2 id="level4"></h2></td>
+						</tr>
+					</table>
+
+
+
+
+				</li>
+				<li>
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_level_almost_there48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Nearly</h2></td>
+							<td style="width: 60%"><h2 id="level3"></h2></td>
+						</tr>
+					</table>
+
+
+
+				</li>
+
+				<li>
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_level_getting_better48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Fairly</h2></td>
+							<td style="width: 60%"><h2 id="level2"></h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+				<li>
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_level_barely_know48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Barely</h2></td>
+							<td style="width: 60%"><h2 id="level1"></h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+				<li>
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_star_enabled48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Star</h2></td>
+							<td style="width: 60%"><h2 id="star"></h2></td>
+						</tr>
+					</table>
+
+
+
+				</li>
+
+				<li>
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 50px"><img
+								src="image_data/ic_push_pin48.png" /></td>
+							<td style="width: 40%"><h2 style="text-align: left">Most
+									frequent</h2></td>
+							<td style="width: 60%"><h2 id="critical"></h2></td>
+						</tr>
+					</table>
+
+
+
+				</li>
+
+			</ul>
+
+			<ul>
+				<li>Forecasted Summary</li>
+				<li>
+
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_average_summary_current_average48.png" /></td>
+							<td><h2>Current average</h2></td>
+						</tr>
+					</table>
+
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_average_summary_forecasted_completion_date48.png" /></td>
+							<td><h2>Forecasted completion date</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+				<li class="sub">
+					<table>
+						<tr>
+							<td><img src="image_data/ic_menu_settings.png"
+								style="max-width: 28px" /></td>
+							<td><h2>Gre Target Date</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+				<li>
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_average_summary_established_average48.png" /></td>
+							<td><h2>Established average</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_average_summary_future_average48.png" /></td>
+							<td><h2>Forecasted average</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+			</ul>
+
+			<ul>
+				<li>Test Summary</li>
+				<li>
+
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_test_summary_highest_score48.png" /></td>
+							<td><h2>Highest score</h2></td>
+						</tr>
+					</table>
+
+				</li>
+				<li>
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_test_summary_lowest_score48.png" /></td>
+							<td><h2>Lowest score</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+				<li>
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_test_summary_average_score48.png" /></td>
+							<td><h2>Average score</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+				<li>
+					<table>
+						<tr>
+							<td><img
+								src="image_data/ic_progress_test_summary_average_score_fixed_time48.png" /></td>
+							<td><h2>Fixed time test - average words per minute</h2></td>
+						</tr>
+					</table>
+
+
+				</li>
+
+
+			</ul>
+
+
+		</div>
+
+		<div class="foot" align="center">
+			<div id="menu_button">
+				<i class="fa fa-bars fa-2x" style="margin-right:10px;margin-top:15px"></i>
+			</div>
+
+		</div>
+		<div class="menu" align="center"></div>
+
+
+	</div>
+
+	</div>
+	<script>
+			  
+			  document.addEventListener("deviceready", onDeviceReady, false);
+			  function onDeviceReady() {
+      
+				initDatabase();	
+				startApplication();	  
+			
+	  
+			}
+			
+			$(document).ready(function(){
+			
+				if(! isMobile.any() ){
+			
+					onDeviceReady();
+				
+				}
+				
+				
+				
+			});
+			
+			var miL=0;
+			function startApplication(){
+				$.getJSON('json/application.json', function(appMessage) {
+				
+					$(".part2 .tabs1").html("");
+				
+				    
+					
+					$.each(appMessage.layouts,function(i,j){
+					
+						
+						if(j.layoutorder=="menu" && j.menuLayouts!=null && j.menuLayouts.indexOf($("#layout").val())!=-1 ){
+								miL++;
+								$(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a href=\""+j.template+"\">"+j.name+"</a></div>");	
+						}
+									
+					});
+					createMenu(miL);
+					
+					getSummaryReport("identity_data","level");
+			
+				});
+			}
+			 
+			</script>
+
+</body>
+</html>

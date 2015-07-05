@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layouts>
+
+<layout class="com.test.model.Layout">
+		<property name="format" value="info" />
+		<property name="primary_field" value="Word" />
+		<property name="primary_type" value="Type" />
+		<property name="primary_category" value="category" />
+		<property name="infotabs" value="Meaning,Synonym,Antonym,Usage" />
+		<property name="default_field" value="Meaning" />
+		<property name="template" value="study.jsp" />		
+		<property name="dataFile" value="info_data.xml" />
+		<property name="name" value="Study" />
+		<property name="logo" value="tools.png" />
+		
+</layout>
+
+
+<layout class="com.test.model.Layout">
+		<property name="format" value="quiz" />
+		<property name="template" value="quiz.jsp" />		
+		<property name="dataFile" value="quiz_data.xml" />
+		<property name="name" value="Quiz" />
+		<property name="logo" value="tools.png" />
+		
+		
+</layout>
+
+
+<layout class="com.test.model.Layout">
+		<property name="format" value="browse" />
+		<property name="primary_field" value="Word" />
+		<property name="primary_type" value="Type" />
+		<property name="primary_category" value="category" />		
+		<property name="template" value="browse.jsp" />		
+		<property name="dataFile" value="info_data.xml" />
+		<property name="name" value="Browse" />
+		<property name="logo" value="tools.png" />
+		
+</layout>
+
+
+</layouts>

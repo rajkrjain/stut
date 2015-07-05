@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layouts>
+
+<layout class="com.test.model.HelpLayout">
+		<property name="dataKey" value="one" />		
+		<property name="header" value="My Header" />		
+		<property name="logo" value="log.png" />		
+		<property name="payLoadHtml" value="test.html" />
+</layout>
+
+<layout class="com.test.model.HelpLayout">
+		<property name="dataKey" value="two" />		
+		<property name="header" value="Test Two" />		
+		<property name="logo" value="log.png" />		
+		<property name="payLoadHtml" value="test1.html" />
+</layout>
+
+
+</layouts>

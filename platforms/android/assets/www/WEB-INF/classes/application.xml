@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications>
+
+<application class="com.test.model.Application">
+		<property name="name" value="Test" />
+		<property name="owner" value="Test.com" />
+		<property name="category" value="" />
+		<property name="logo" value="tools.png" />		
+		
+		<property name="type" value="quiz" />
+		<property name="layout" value="applayout.xml" />
+		
+</application>
+
+</applications>

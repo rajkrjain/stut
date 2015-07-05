@@ -1,0 +1,856 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript" src="media/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchwipe.1.1.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="srijna.js"></script>
+<script type="text/javascript" charset="utf-8" src="tts.js"></script>
+
+
+
+
+
+<link rel="stylesheet"
+	href="css/font-awesome-4.3.0/css/font-awesome.css" />
+<link rel="stylesheet" href="css/srijna.css" type="text/css"
+	media="screen" />
+<style>
+body {
+	background: #fff;
+	overflow: hidden;
+}
+
+.speak {
+	width: 30px;
+}
+
+.text1 {
+	font-weight: 700;
+	font-size: .9em;
+	color: #07ade0;
+	float: left;
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.ddiv {
+	font-weight: 700;
+	font-size: .9em;
+	color: #666;
+	float: left;
+	display: block;
+	text-overflow: ellipsis;
+}
+
+.part1 {
+	height: 12%;
+}
+
+.part1 .content {
+	height: 100%;
+	width: 100%;
+}
+
+.part2 {
+	height: 88%;
+}
+
+.part3 {
+	height: 10%;
+}
+
+.part2 p {
+	font-weight: 300;
+	color: #777;
+	margin-bottom: .1em;
+	display: block;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	white-space: normal;
+	font-size: 1.05em;
+}
+
+.buttonmask {
+	cursor: pointer;
+}
+
+.buttonmask img {
+	
+}
+
+.buttonmaskbig {
+	cursor: pointer;
+}
+
+.buttonmaskbig img {
+	
+}
+
+.btw {
+	width: 20%;
+	height: 40px;
+	float: left;
+}
+
+.poptb {
+	display: none;
+	width: 52px;
+	z-index: 1000px;
+	height: auto;
+	position: absolute;
+	background: #ccc;
+	top: 11%;
+	left: 10.6%;
+	border: 3px solid #aaa;
+	border-radius: 10px;
+}
+
+.panes {
+	border: 1px solid #eee;
+	background: white;
+}
+
+.tabs li.select, .next:hover {
+	background: #04608E;
+	background: -moz-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e
+		100%);
+	background: -o-linear-gradient(top, #69a0b6 0, #69a0b6 1px, #277696 1px, #04608e
+		100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #69a0b6),
+		color-stop(5%, #69a0b6), color-stop(5%, #277696),
+		color-stop(100%, #04608e));
+	background: linear-gradient(top, #69a0b6 0%, #69a0b6 1px, #277696 1px, #04608e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#277696',
+		endColorstr='#04608E', GradientType=0);
+	background: #3f51b5 !important;
+	color: #fff;
+}
+
+.tabs li, .next {
+	background: #0571A6;
+	background: -moz-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6
+		100%);
+	background: -o-linear-gradient(top, #73aec9 0, #73aec9 1px, #338ab0 1px, #0571a6
+		100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #73aec9),
+		color-stop(5%, #73aec9), color-stop(5%, #338ab0),
+		color-stop(100%, #0571a6));
+	background: linear-gradient(top, #73aec9 0%, #73aec9 1px, #338ab0 1px, #0571a6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#338AB0',
+		endColorstr='#0571A6', GradientType=0);
+	color: #fff !important;
+	border-width: 1px;
+	border-style: solid;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 1.35;
+	margin-top: 0px;
+	overflow: visible;
+	padding: 3px 10px 2px;
+	text-decoration: none !important;
+	vertical-align: top;
+	width: auto;
+}
+
+.next {
+	border-color: #045a8b;
+}
+
+.tabs li {
+	float: left;
+	height: 100%;
+	padding: 0px;
+	text-align: center;
+	background: #aaa
+}
+
+.tabs li a {
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.ddiv {
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+.poptb h2 {
+	font-size: 10pt;
+	margin: 0px;
+	padding: 0px;
+	font-weight: normal;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+}
+
+.poptb div {
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	background: #fff;
+	margin-bottom: 5px;
+}
+
+.dialog {
+	border: 1px solid #a4baca;
+	background: #fdfdfd;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	width: 100%;
+	margin-left: 0%;
+	height: auto;
+	display: none;
+}
+
+.dialog .header {
+	position: relative;
+	background: #517fa4;
+	height: 25px;
+	border: 1px solid #1c5380;
+	border-width: 1px 1px 0;
+	-webkit-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0
+		rgba(255, 255, 255, 0.2) inset; -moz-box-shadow : 0 -1px 0 #06365f
+	inset, 0 1px 0 rgba( 255, 255, 255, 0.2) inset; box-shadow : 0 -1px 0
+	#06365f inset, 0 1px 0 rgba( 255, 255, 255, 0.2) inset;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	background-color: #517fa4;
+	background: #517fa4;
+	margin: -1px -1px 1px;
+	-moz-box-shadow: 0 -1px 0 #06365f inset, 0 1px 0
+		rgba(255, 255, 255, 0.2) inset;
+	box-shadow: 0 -1px 0 #06365f inset, 0 1px 0 rgba(255, 255, 255, 0.2)
+		inset;
+}
+
+.dialog textarea {
+	width: 100%;
+	height: 50%;
+}
+
+.dialog .logo {
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	font-family: "freight-sans-pro", "proxima-nova", "Helvetica Neue", Arial,
+		Helvetica, sans-serif;
+}
+
+.dialog .close {
+	background-image: url(image_data/close.png);
+	position: absolute;
+	right: 0px;
+	z-index: 100;
+	top: -4px;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+}
+
+.mode img, .level img {
+	width: 100%;
+}
+
+#cindex {
+	line-height: 14px;
+	margin: 0px;
+	padding: 0px;
+	width: 50px;
+	color: black;
+	text-align: center;
+	font-size: 12pt;
+}
+</style>
+
+</head>
+<body>
+	<input type="hidden" value="Study" id="layout" />
+	<div class="mainview" align="left">
+		<div class="head">
+			<div class="btw" align="left">
+				<div class="buttonmask" id="one"></div>
+			</div>
+			<div class="btw" align="left">
+				<div class="buttonmask" id="two"></div>
+			</div>
+			<div class="btw" align="center">
+				<div class="buttonmaskbig" id="three"></div>
+			</div>
+			<div class="btw" align="right">
+				<div class="buttonmask" id="four"></div>
+			</div>
+
+			<div class="btw" align="right">
+				<div class="buttonmask" id="five" class="enabled"></div>
+			</div>
+		</div>
+
+		<div class="body">
+			<div class="part1">
+				<div class="content">
+					<h2 class="text1" id="primary_field">Test</h2>
+					<h2 class="text1" id="primary_type">(Test)</h2>
+					<img class="speak" src="image_data/ic_push_pin48.png" /> <img
+						style="float: right" class="speak"
+						src="image_data/ic_speaker48.png" />
+				</div>
+			</div>
+			<div class="part2">
+				<img style="position: absolute" class="clock" id="clock"
+					src="image_data/ic_clock125.png" />
+				<h2 style="position: absolute; display: none" class="clock"
+					id="clock_text">10</h2>
+				<h2 style="position: absolute;" id="cindex">1</h2>
+				<!-- tab "panes" -->
+				<div class="panes" style="height: 90%"></div>
+				<div class="tabs" style="height: 10%"></div>
+
+				<div class="details dialog">
+					<a class="close"></a>
+
+
+					<iframe src="" style="border: none"></iframe>
+
+				</div>
+
+
+
+			</div>
+		</div>
+
+		<div class="foot" align="center">
+			<div id="menu_button">
+
+				<i class="fa fa-bars fa-2x"
+					style="margin-right: 10px; margin-top: 15px"></i>
+
+			</div>
+			<button onclick="next(false);" class="next" id="prev">Prev</button>
+			<button onclick="next(true);" class="next" id="next_b">Next</button>
+
+		</div>
+		<div class="menu" align="center"></div>
+
+
+	</div>
+	<div class="poptb"></div>
+	<div class="window dialog">
+		<a class="close"></a>
+		<div class="header">
+			<img id="logo" src="" />
+			<h2 id="appName"></h2>
+		</div>
+
+		<div class="data"
+			style="width: 100%; height: 90%; overflow-x: hidden; overflow-y: auto;">
+
+
+		</div>
+
+
+	</div>
+
+	<script>
+		var lastLeft = null;
+		var data = new Array();
+		var cData = null;
+		$(".details").overlay({
+			left : 0,
+			top : 0,
+			onBeforeLoad : function() {
+
+			},
+
+			closeOnClick : false,
+			load : false
+
+		});
+
+		loadMenuWindow();
+
+		$(".poptb").animate({
+			"height" : "toggle"
+		}, 0);
+		$(".buttonmaskbig").click(
+				function() {
+					$(".poptb").html(getHtmlDetails($(this).attr("id")));
+
+					$(".poptb .level").click(
+							function() {
+
+								$(".buttonmaskbig img").attr("src",
+										$("img", $(this)).attr("src"));
+
+								updateLevel(
+										$(this).attr("id").split("level")[1],
+										'level', cData);
+
+								$(".poptb").animate({
+									"height" : "toggle"
+								}, 500);
+
+								if ($(this).attr("id").split("level")[1] == 4) {
+
+									setTimeout("next(true)", 1000);
+								}
+
+							});
+
+					$(".poptb").width($(this).width());
+					$(".poptb").css({
+						"left" : $(this).position().left
+					});
+					$(".poptb").css({
+						"top" : $(this).position().top + $(this).height()
+					});
+					if ($(".poptb").css("display") != "none"
+							&& lastLeft != $(this).attr("id")) {
+
+					} else
+						$(".poptb").animate({
+							"height" : "toggle"
+						}, 500);
+
+					lastLeft = $(this).attr("id");
+				});
+		$(".buttonmask").click(
+				function() {
+
+					if ($(this).attr("id") == "one") {
+
+						$(".poptb").html(getHtmlDetails($(this).attr("id")));
+
+						$(".poptb .mode").click(
+								function() {
+
+									$("#one img").attr("src",
+											$("img", $(this)).attr("src"));
+
+									$(".poptb").animate({
+										"height" : "toggle"
+									}, 500);
+
+									settings.mode.value = $(this).attr("id")
+											.split("mode")[1];
+
+									updateSettingsAll(settings, layObj);
+
+								});
+
+						$(".poptb").width($(this).width());
+
+						$(".poptb").css({
+							"left" : $(this).position().left
+						});
+
+						$(".poptb").css({
+							"top" : $(this).position().top + $(this).height()
+						});
+
+						if ($(".poptb").css("display") != "none"
+								&& lastLeft != $(this).attr("id")) {
+
+						} else
+							$(".poptb").animate({
+								"height" : "toggle"
+							}, 500);
+
+						lastLeft = $(this).attr("id");
+
+					} else if ($(this).attr("id") == "four") {
+
+						showDetails(cData[layObj.primary_field]);
+
+					} else if ($(this).attr("id") == "two") {
+
+						startTTSFlow();
+
+					}
+
+				});
+
+		var layObj = null;
+		var settings = null;
+
+		// function callStartApplication(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+
+		$(document).ready(function() {
+
+			if (!isMobile.any()) {
+				onDeviceReady();
+			} else {
+				startTTS();
+			}
+
+		});
+
+		function onDeviceReady() {
+
+			$(".btw").height($(".head").height());
+			$(".buttonmask").height($(".head").height());
+			$(".buttonmaskbig").height($(".head").height());
+			$(".buttonmaskbig").width($(".head").height());
+			$(".buttonmask").width($(".head").height());
+			$(".foot .next").css("margin-top",
+					($(".foot").height() - $(".next").height()) / 2);
+
+			initDatabase();
+			startApplication();
+		}
+
+		// }
+
+		var index = -1;
+		function startApplication() {
+			index = -1;
+			var miL = 0;
+			$(".menu div").remove();
+			var isDeckSelSupported = false;
+
+			$
+					.getJSON(
+							'json/application.json',
+							function(appMessage) {
+
+								appMessage=appMessage.GreVocab;
+								isDeckSelSupported = appMessage.isDeckSelSupported;
+
+								if (isDeckSelSupported) {
+
+									setDeckSupported($("#layout").val());
+
+								}
+
+								$
+										.each(
+												appMessage.layouts,
+												function(i, j) {
+													if (j.layoutorder == "menu"
+															&& j.menuLayouts != null
+															&& j.menuLayouts
+																	.indexOf($(
+																			"#layout")
+																			.val()) != -1) {
+														miL++;
+
+														if (j.name
+																.indexOf("Customize") == -1 &&   j.name!="Home") {
+
+															$(".menu")
+																	.append(
+																			"<div onclick=\"openDWindow('"
+																					+ j.template
+																					+ "',this);\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a>"
+																					+ j.name
+																					+ "</a></div>");
+
+														} else {
+
+															$(".menu")
+																	.append(
+																			"<div onclick=\"window.open('"
+																					+ j.template
+																					+ "','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a>"
+																					+ j.name
+																					+ "</a></div>");
+
+														}
+
+														//$(".menu").append("<div onclick=\"window.open('"+j.template+"','_self');\"><img align=\"center\" src=\"image_data/"+j.logo+"\"></img><a href=\""+j.template+"\">"+j.name+"</a></div>");	
+													}
+
+													if (j.name == $("#layout")
+															.val()) {
+														layObj = j;
+														layoutName = j.name;
+														parseSettings(
+																layObj,
+																function(sett) {
+																	settings = sett;
+																	createTabs(layObj);
+																	createMenu(miL);
+																	$
+																			.getJSON(
+																					"json/study.json",
+																					function(
+																							js) {
+																						$
+																								.each(
+																										js.data,
+																										function(
+																												i,
+																												j) {
+																											data = j;
+
+																											parseFilters(
+																													layObj,
+																													function callBack(
+																															filters) {
+
+																														data = getSelectedDeckData(data);
+
+																														fillUserData(
+																																data,
+																																layObj.name,
+																																function(
+																																		dataOut) {
+																																	data = dataOut;
+
+																																	data = getFilteredData(
+																																			data,
+																																			filters);
+
+																																	next(true);
+																																},
+																																settings.mode.value);
+																													});
+
+																										});
+
+																					});
+
+																});
+													}
+												});
+							});
+
+		}
+
+		function next(val) {
+
+			if (val && $("#next_b").css("opacity") == "0.5") {
+				return;
+			}
+			if (!val && $("#prev").css("opacity") == "0.5") {
+				return;
+			}
+
+			if (val) {
+				$("#prev").css("opacity", "1.0");
+			} else {
+				$("#next_b").css("opacity", "1.0");
+			}
+			$("#cindex").css("display", "none");
+
+			/*if(val){
+			$(".part2 .panes").flip({
+				direction: "lr",
+				color: 'white',
+				content: '',//(new Date()).getTime(),
+				onBefore: function(){},
+				onAfter:nextObject(val)
+			});
+			}else{
+			
+				$(".part2 .panes").flip({
+				direction: "rl",
+				color: 'white',
+				content: '',//(new Date()).getTime(),
+				onBefore: function(){},
+				onAfter:nextObject(val)
+			});
+			}*/
+			$(".body").bind('oTransitionEnd transitionEnd webkitTransitionEnd',
+					event, function() {
+						$(".body").removeClass("flipped");
+						$("#cindex").css("display", "block");
+					});
+			$(".body").addClass("flipped");
+
+			nextObject(val);
+		}
+		var timerObj = null;
+		function nextObject(val) {
+
+			cData = null;
+
+			if (val) {
+				index++;
+			} else {
+				index--;
+			}
+
+			cData = data[index];
+
+			if (data.length == (index + 1)) {
+				$("#next_b").css("opacity", "0.5");
+			}
+
+			if (index <= 0) {
+				$("#prev").css("opacity", "0.5");
+
+			} else {
+				$("#prev").css("opacity", "1.0");
+			}
+
+			$("#primary_field").html(cData[layObj.primary_field]);
+			$("#primary_type").html(
+					"&nbsp;( " + cData[layObj.primary_type] + " ) ");
+
+			if (isTTSRunning) {
+				formatDataToSpeech(layObj, cData, settings);
+			}
+
+			var tabs = layObj.infotabs.split(",");
+			$(".part2 .panes").html("");
+
+			for (var i = 0; i < tabs.length; i++) {
+				$(".part2 .panes").append(
+						"<div class=\"ddiv\" id=\"tab_"+tabs[i]+"\">"
+								+ cData[tabs[i]] + "</div>");
+			}
+			var tl = tabs.length;
+			for (var i = 0; i < tabs.length; i++) {
+				if (cData[tabs[i]] == null || cData[tabs[i]] == "") {
+					$(".part2 .tabs #" + tabs[i]).css("display", "none");
+					tl--;
+					continue;
+				} else {
+					$(".part2 .tabs #" + tabs[i]).css("display", "block");
+				}
+			}
+
+			$(".part2 .tabs li").width(($(".part2").width() / tl - 2));
+			$("#one").html("<img src=\"" + getImage(1, settings) + "\" />");
+
+			$("#two").html("<img src=\"" + getImage(2) + "\" />");
+			$("#three").html(
+					"<img  src=\"" + getImage(3, cData['level']) + "\" />");
+			$("#four").html(
+					"<img style=\"padding:0px;margin:0px\" src=\""
+							+ getImage(4) + "\" />");
+			$("#five").html(
+					"<img style=\"padding:0px;margin:0px\"  src=\""
+							+ getImage(5) + "\" />");
+
+			$(".buttonmask img").width($(".head").height() - 2);
+			$(".buttonmaskbig img").width($(".head").height());
+
+			$("#cindex").html((index + 1) + "/" + data.length);
+
+			//settings.time_to_display.value=0;
+
+			if (isTTSRunning) {
+
+				$(".clock").css("display", "none");
+
+				if (timerObj) {
+					clearInterval(timerObj);
+				}
+
+				if (!$(".part2 .tabs li").hasClass("select")) {
+					$(".part2 .tabs #" + layObj.default_field).click();
+				} else {
+					$("#tab_" + $(".select").attr("id"))
+							.css("display", "block");
+				}
+			} else {
+				$("#clock_text").html(settings.time_to_display.value);
+
+				if (timerObj) {
+					clearInterval(timerObj);
+					$(".clock").css("display", "block");
+				}
+				timerObj = createTimer(
+						parseInt(settings.time_to_display.value),
+						function(val) {
+							$(".clock").css("display", "block");
+							$("#clock_text").html(val);
+
+						}, function(val) {
+							$("#clock_text").html(val);
+							if (!isTTSRunning) {
+								if (!$(".part2 .tabs li").hasClass("select")
+										|| $(".part2 .tabs li.select").css(
+												"display") == "none") {
+									$(".part2 .tabs #" + layObj.default_field)
+											.click();
+								} else {
+									$("#tab_" + $(".select").attr("id")).css(
+											"display", "block");
+								}
+							}
+
+							$(".clock").css("display", "none");
+						});
+
+			}
+			updateStarUI(cData);
+			$("#five img").click(function() {
+				toggleStar(cData);
+			});
+			updateAccess(cData);
+		}
+
+		function createTabs(layout) {
+			var tabs = layout.infotabs.split(",");
+			$(".part2 .tabs").html("");
+
+			for (var i = 0; i < tabs.length; i++) {
+				$(".part2 .tabs").append(
+						"<li id=\""+tabs[i]+"\"><a href=\"#"+tabs[i]+"\">"
+								+ tabs[i] + "</a></li>");
+			}
+
+			$(".part2 .tabs li").click(function() {
+				$(".part2 .tabs li").removeClass("select");
+				$(".part2 .tabs li a").css("color", "black");
+				$(".ddiv").css("display", "none");
+				if ($(this).hasClass("select")) {
+					$("#tab_" + $(this).attr("id")).css("display", "none");
+					$(this).removeClass("select");
+				} else {
+					$(this).addClass("select");
+					$("a", $(this)).css("color", "white");
+					$("#tab_" + $(this).attr("id")).css("display", "block");
+				}
+			});
+
+			$(".part2 .tabs li").width(($(".part2").width() / tabs.length - 2));
+
+			$("#clock").css("margin-left",
+					($(".part2").width() - $("#clock").width()) / 2);
+
+			$("#clock_text").css("margin-left",
+					($(".part2").width() - $("#clock_text").width() + 10) / 2);
+
+			$("#clock_text").css("margin-top",
+					($("#clock").height() - $("#clock_text").height()) / 2);
+
+		}
+
+		$(".part2").touchwipe({
+			wipeLeft : function() {
+				next(false);
+			},
+			wipeRight : function() {
+				next(true);
+			},
+			wipeUp : function() {
+				next(true);
+			},
+			wipeDown : function() {
+				next(false);
+			},
+			min_move_x : 20,
+			min_move_y : 20,
+			preventDefaultEvents : true
+		});
+		$("#cindex").css("top", $(".part2 .tabs").position().top - 16);
+		$("#cindex").css("left", ($(".part2").width() - 50) / 2);
+	</script>
+</body>
+</html>
